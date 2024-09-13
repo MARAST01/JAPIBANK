@@ -36,12 +36,44 @@ header{
     cursor: pointer;
 }
 
-.navegacion{
+.navegacion a{
     position: relative;
     font-size: 1.1rem;
     color:aliceblue;
     text-decoration: none;
     font-weight: 500;
+    margin-left: 40px;
+}
+
+.navegacion a::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: -6px;
+    left: 0;
+    height: 2px;
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 4s;
+}
+
+.navegacion a:hover::after{
+    transform: scaleX(1);
+    transform-origin:left;
+}
+
+.navegacion .button{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size:1.1rem;
+    color: #fff;
+    font-weight: 600;
+    margin-left: 40px;
     
 
 }
