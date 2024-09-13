@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JapiBank</title>
+
+    <link rel="stylesheet" href="olvida.css"> 
+    
+
+    
+
+    
+</head>
+<body>
+  <img src="../fondoJapiBank.jpeg" alt="logo" class="logo">
+
+  <div class="grande">
+    <h2>Olvidaste tu contraseña</h2>
+    <hr>
+    <p>Introduzca la dirección de correo electronico asociado a JapiBank. </p>
+
+
+    
+    <form id="form">
+        <div class="field">
+          <label for="to_email" class="email"><b>Email</b></label>
+          <input type="text" name="to_email" id="to_email" placeholder="Escribe tu email">
+            <input type="hidden" name="message" id="message" >
+        </div>
+
+        
+        <input  type="submit" id="button" value="Send code"  >
+
+      </form>
+
+      </div>
+      
+      <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+      
+      <script type="text/javascript">
+        emailjs.init('-sr45w4fQWsZ6RTu3')
+      </script>
+
+      <script src="script.js"></script>
+      
+   
+</body>
+</html>
