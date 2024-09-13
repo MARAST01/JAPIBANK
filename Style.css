@@ -12,17 +12,17 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:url(fondoJapiBank.jpeg);
+    background:url(FondoBlanco.png);
     background-size: cover;
     background-position: center;
 }
 
 header{
     position:fixed;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 100px;
+    padding: 20px 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -55,7 +55,7 @@ header{
     background: #fff;
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform 4s;
+    transition: transform 2s;
 }
 
 .navegacion a:hover::after{
@@ -64,7 +64,7 @@ header{
 }
 
 .navegacion .button{
-    width: 130px;
+    width: 140px;
     height: 50px;
     background: transparent;
     border: 2px solid #fff;
@@ -74,6 +74,9 @@ header{
     color: #fff;
     font-weight: 600;
     margin-left: 40px;
-    
+}
 
+.navegacion .button:hover{
+    background: #fff;
+    color: #090f1d;
 }
