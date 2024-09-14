@@ -5,17 +5,17 @@ const btn = document.querySelector(".btn");
 const iconocerrar = document.querySelector(".icono-cerrar");
 
 registrarlink.addEventListener("click", () => {
-    fondo.classList.add("active");
+    fondo.classList.add('active');
 });
 
 loginlink.addEventListener("click", () => {
-    fondo.classList.remove("active");
+    fondo.classList.remove('active');
 });
 
 btn.addEventListener("click", () => {
-    fondo.classList.add("active-btn");
+    fondo.classList.add('active-btn');
 });
 
 iconocerrar.addEventListener("click", () => {
-    fondo.classList.remove("active-btn");
+    fondo.classList.remove('active-btn');
 });

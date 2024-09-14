@@ -67,7 +67,7 @@ header{
 }
 
 /* Iniciar Sesión boton barra de navegación*/
-.navegacion .button{
+.navegacion .btn{
     /* borde*/
     width: 140px;
     height: 50px;
@@ -83,7 +83,7 @@ header{
 }
 
 /* boton iniciar sesión seleccionado*/
-.navegacion .button:hover{
+.navegacion .btn:hover{
     background: #fff;
     color: #090f1d;
 }
@@ -103,8 +103,8 @@ header{
     align-items: center;
     overflow: hidden;
     transition: transform .5s ease height .2s ease;
-    transform: scale(0);
     margin-top: -50px;
+    transform: scale(0);
 }
 
 .fondo.active-btn{
