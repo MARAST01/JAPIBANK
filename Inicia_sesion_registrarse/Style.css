@@ -12,7 +12,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:url(images/JapiBankFondo.png);
+    background:url(JapiBankFondo.png);
     background-size: cover;
     background-position: center;
 }
@@ -103,7 +103,7 @@ header{
     align-items: center;
     overflow: hidden;
     transition: transform .5s ease height .2s ease;
-    transform: scale(1);
+    transform: scale(0);
     margin-top: -50px;
 }
 
@@ -130,6 +130,11 @@ header{
     transform: translateX(-400px);
 }
 
+.fondo .contenedor-form.registrar{
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
 .fondo.active .contenedor-form.registrar{
     transition: transform .17s ease;
     transform: translateX(0);
