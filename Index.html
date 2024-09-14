@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name = "viewport" content="width=device-with", initial-scale="1.0">
     <script src="https://kit.fontawesome.com/a2dd6045c4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css"
-    <title>Login y Registro</title>
+    <link rel="stylesheet" href="style.css">
+    <title>JapiBank</title>
 </head>
+
 <body>
     <header>
         <h2 class ="logo">JapiBank</h2>
@@ -16,33 +17,49 @@
             <a href="#">Sobre nosotros</a>
             <a href="#">Servicios</a>
 
+             <!-- boton iniciar sesión en la barra de navegación -->
             <btnInicio class="button">Iniciar Sesión</btnInicio>
         </nav>
     </header>
 
+    <!-- INICIAR SESIÓN -->
     <div class="fondo">
+
         <span class="icono-cerrar"><i class="fa-solid fa-xmark"></i></span>
     <div class="contenedor-form login">
         <h2>Iniciar Sesión</h2>
         <form action="#">
+
+            <!-- email -->
             <div class="contenedor-input">
-                <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+                <span class="icono-email"><i class="fa-solid fa-envelope"></i></span>
                 <input type="email" required>
                 <label for="#">Gmail</label>
             </div>
 
-            <div class="contenedor-input"></div>
-                <span class="icono"><i class="fa-solid fa-lock"></i></span>
+              <!-- contraseña -->
+            <div class="contenedor-input">
+                <span class="icono-contraseña"><i class="fa-solid fa-lock"></i></span>
                 <input type="password" required>
                 <label for="#">Contraseña</label>
             </div>
 
+            <!-- recordar usuario -->
             <div class="recordar">
                 <label for="#"><input type="checkbox">Recordar Sesión</label>
-                <a href="#">olvidé la Contraseña</a>
+                <a href="#">¿Olvidaste la contraseña?</a>
+            </div>
+
+            <!-- boton iniciar sesión -->
+            <button type="submit" class="btn">Iniciar Sesión</button>
+
+            <!-- crear cuenta -->
+            <div class="registrar">
+                <p>¿No tienes cuenta?<a href="#" class="registrar-link">Crear Cuenta</a></p>
             </div>
         </form>
     </div>
+    
     </div>
 </body>
 
