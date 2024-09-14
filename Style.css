@@ -12,7 +12,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:url(FondoBlanco.png);
+    background:url(images/JapiBankFondo.png);
     background-size: cover;
     background-position: center;
 }
@@ -29,21 +29,24 @@ header{
     z-index: 99;
 }
 
+/* JapiBank titulo */
 .logo{
     font-size: 2.3rem;
-    color:aliceblue;
+    color:rgb(255, 255, 255);
     user-select: none;
     cursor: pointer;
 }
 
+/* navegación opciones*/
 .navegacion a{
     position: relative;
     font-size: 1.1rem;
-    color:aliceblue;
+    color:rgb(225, 236, 246);
     text-decoration: none;
     font-weight: 500;
     margin-left: 40px;
 }
+
 
 .navegacion a::after{
     content: "";
@@ -63,20 +66,205 @@ header{
     transform-origin:left;
 }
 
+/* Iniciar Sesión boton barra de navegación*/
 .navegacion .button{
+    /* borde*/
     width: 140px;
     height: 50px;
     background: transparent;
-    border: 2px solid #fff;
+    border: 2px solid #f3f3f3;
     border-radius: 6px;
     cursor: pointer;
     font-size:1.1rem;
-    color: #fff;
+    /* texto*/
+    color: #ffffff;
     font-weight: 600;
     margin-left: 40px;
 }
 
+/* boton iniciar sesión seleccionado*/
 .navegacion .button:hover{
     background: #fff;
     color: #090f1d;
+}
+
+/*iniciar sesión*/
+.fondo{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter:blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform .5s ease height .2s ease;
+    transform: scale(1);
+    margin-top: -50px;
+}
+
+.fondo.active-btn{
+    transform: scale(1);
+}
+
+.fondo.active{
+    height: 455px;
+}
+
+.fondo .contenedor-form{
+    width: 100%;
+    padding: 40px;
+}
+
+.fondo .contenedor-form.login{
+    transition: .17s ease;
+    transform: translateX(0);
+}
+
+.fondo.active .contenedor-form.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.fondo.active .contenedor-form.registrar{
+    transition: transform .17s ease;
+    transform: translateX(0);
+}
+
+.fondo .icono-cerrar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background-color: #090f1d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 1.8em;
+    color: #F1EFEF;
+}
+
+.fondo .icono-contraseña{
+    color: #F1EFEF;
+}
+
+.fondo .icono-email{
+    color: #F1EFEF;
+}
+
+label {
+    color: #F1EFEF; 
+}
+
+/*iniciar sesión titulo*/
+.contenedor-form h2{
+    position: relative;
+    font-size: 2em;
+    color: #ffffff;
+    text-align: center;
+    top: -20px;
+}
+
+.contenedor-input{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #F1EFEF;
+    margin: 40px 0;
+}
+
+.contenedor-input label{
+    position:absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    font-weight: 600;
+    pointer-events: none;
+    transition: .4s;
+    color: #F1EFEF;
+}
+
+.contenedor-input input:focus ~ label,
+.contenedor-input input:valid ~ label{
+    top: -5px;
+}
+
+.contenedor-input input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #F1EFEF;
+    padding: 0 35px 0 5px;
+}
+
+.contenedor-input i{
+    position: absolute;
+    right: 8px;
+    font-size: 1.4em;
+    color:#F1EFEF;
+    line-height: 57px;
+}
+
+.recordar{
+    padding-top: 20px;
+    font-size: .9em;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.recordar label input{
+    accent-color: #090f1d;
+    margin-right: 3px;
+}
+
+.recordar a{
+    color: #F1EFEF;
+    text-decoration: none;
+}
+
+.recordar a:hover{
+    text-decoration: underline;
+}
+
+.btn{
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #090f1d;
+    color: #F1EFEF;
+}
+
+.registrar{
+    font-size: .9em;
+    color: #F1EFEF;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.registrar p a{
+    color: #F1EFEF;
+    text-decoration: none;
+}
+
+.registrar p a:hover{
+    text-decoration: underline;
 }
