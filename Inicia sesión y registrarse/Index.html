@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang = "es">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content="width=device-with", initial-scale="1.0">
+    <script src="https://kit.fontawesome.com/a2dd6045c4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>JapiBank</title>
+</head>
+
+<body>
+    <header>
+        <h2 class ="logo">JapiBank</h2>
+
+        <nav class="navegacion">
+            <a href="#">Inicio</a>
+            <a href="#">Sobre nosotros</a>
+            <a href="#">Servicios</a>
+
+             <!-- boton iniciar sesión en la barra de navegación -->
+            <btnInicio class="button">Iniciar Sesión</btnInicio>
+        </nav>
+    </header>
+
+    <!-- INICIAR SESIÓN -->
+    <div class="fondo">
+
+        <span class="icono-cerrar"><i class="fa-solid fa-xmark"></i></span>
+    <div class="contenedor-form login">
+        <h2>Iniciar Sesión</h2>
+        <form action="#">
+
+            <!-- email -->
+            <div class="contenedor-input">
+                <span class="icono-email"><i class="fa-solid fa-envelope"></i></span>
+                <input type="email" required>
+                <label for="#">Gmail</label>
+            </div>
+
+              <!-- contraseña -->
+            <div class="contenedor-input">
+                <span class="icono-contraseña"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" required>
+                <label for="#">Contraseña</label>
+            </div>
+
+            <!-- recordar usuario -->
+            <div class="recordar">
+                <label for="#"><input type="checkbox">Recordar Sesión</label>
+                <a href="#">¿Olvidaste la contraseña?</a>
+            </div>
+
+            <!-- boton iniciar sesión -->
+            <button type="submit" class="btn">Iniciar Sesión</button>
+
+            <!-- crear cuenta -->
+            <div class="registrar">
+                <p>¿No tienes cuenta?<a href="#" class="registrar-link">Crear Cuenta</a></p>
+            </div>
+        </form>
+    </div>
+    <!-- REGISTRARSE -->
+     <div class="contenedor-form">
+        <h2>Registrarse</h2>
+        <form action="#">
+
+            <!-- nombre -->
+            <div class="contenedor-input">
+                <span class="icono-nombre"><i class="fa-solid fa-user"></i></span>
+                <input type="text" required>
+                <label for="#">Nombre</label>
+            </div>
+
+             <!-- apellido -->
+            <div class="contenedor-input">
+                <span class="icono-apellido"><i class="fa-solid fa-user"></i></span>
+                <input type="text" required>
+                <label for="#">Apellido</label>
+            </div>
+
+            <!-- cedula -->
+            <div class="contenedor-input">
+                <span class="icono-cedula"><i class="fa-solid fa-user"></i></span>
+                <input type="text" required>
+                <label for="#">cedula</label>
+            </div>
+
+            <!-- celular -->
+            <div class="contenedor-input">
+                <span class="icono-celular"><i class="fa-solid fa-phone"></i></span>
+                <input type="text" required>
+                <label for="#">Celular</label>
+            </div>
+
+            <!-- gmail -->
+            <div class="contenedor-input">
+                <span class="icono-email"><i class="fa-solid fa-envelope"></i></span>
+                <input type="email" required>
+                <label for="#">Gmail</label>
+            </div>
+    
+            <!-- contraseña -->
+            <div class="contenedor-input">
+                <span class="icono-contraseña"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" required>
+                <label for="#">Contraseña</label>
+            </div>
+
+            <!-- confirmar contraseña -->
+            <div class="contenedor-input">
+                <span class="icono-contraseña"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" required>
+                <label for="#">Confirmar Contraseña</label>
+            </div>
+
+            <div class="recordar">
+                label for="#"><input type="checkbox">Acepto los terminos y condiciones</label>
+            </div>
+
+            <!-- boton registrarse -->
+            <button type="submit" class="btn">Registrarse</button>
+
+            <div class="registrar">
+                <p>¿Ya tienes cuenta?<a href="#" class="login">Iniciar Sesión</a></p>
+            </div>
+     </div>
+
+    </div>
+</body>
+</html>
