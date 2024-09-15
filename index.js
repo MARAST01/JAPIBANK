@@ -13,15 +13,18 @@ const rl = readline.createInterface({
 
 const pool = new Pool(config);
 
-const getUsuarios = () => {
-    pool.query('SELECT * FROM usuarios', (error, results) => {
-      if (error) {
-         throw error;
-      }
-      console.log(results.rows);
-   });
+const getUsuarios = async () => {
+  try {
+    const results = await pool.query('SELECT * FROM usuarios');
+    console.log(results.rows);
+    pool.end();
+  } catch (error) {
+    console.error('Error al obtener usuarios:', error);
+  }
 };
+
 getUsuarios();
+ 
 
 //insertar un usuario
 
@@ -59,5 +62,4 @@ const insertarUsuario = async () => {
    });
  };
  
- // Llamar a la función para insertar el usuario
  //insertarUsuario();
