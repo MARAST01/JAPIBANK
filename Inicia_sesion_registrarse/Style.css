@@ -112,7 +112,8 @@ header{
 }
 
 .fondo.active{
-    height: 455px;
+    width: 400px; /* Nuevo ancho para el formulario de registro */
+     
 }
 
 .fondo .contenedor-form{
@@ -134,6 +135,11 @@ header{
     position: absolute;
     transition: none;
     transform: translateX(400px);
+    height: 550px; /* Nueva altura para el formulario de registro */
+    overflow-y: auto;
+    width: 80%; 
+    height: 80%;
+    
 }
 .fondo.active .contenedor-form.registrar{
     transition: transform .17s ease;
@@ -161,7 +167,7 @@ header{
     color: #F1EFEF;
 }
 
-.fondo .icono-email{
+.fondo .icono{
     color: #F1EFEF;
 }
 
@@ -214,13 +220,14 @@ label {
     padding: 0 35px 0 5px;
 }
 
-.contenedor-input i{
+.contenedor-input .icono{
     position: absolute;
     right: 8px;
     font-size: 1.4em;
     color:#F1EFEF;
     line-height: 57px;
 }
+
 
 .recordar{
     padding-top: 20px;
