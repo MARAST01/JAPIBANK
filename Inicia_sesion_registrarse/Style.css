@@ -241,6 +241,7 @@ label {
 .recordar label input{
     accent-color: #090f1d;
     margin-right: 3px;
+    cursor: pointer;
 }
 
 .recordar a{
