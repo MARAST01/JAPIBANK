@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapics.com/css2?family=Poppings:wght@400;500;600;700;800&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border_box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:url(JapiBankFondo.png);
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #000000;
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.balance-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #000000;
+}
+
+.balance-section h1 {
+    font-size: 1.2em;
+}
+
+.balance-section .balance {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.favorites, .suggested {
+    padding: 20px;
+    background-color: #fff;
+    color: black;
+}
+
+.favorite-icons, .suggested-icons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.icon {
+    text-align: center;
+    padding: 10px;
+    background-color: #f3e5f5;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #000000;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-around;
+}
