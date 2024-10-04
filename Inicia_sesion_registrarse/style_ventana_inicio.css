@@ -37,6 +37,11 @@ header {
     margin-left: 40px;
 }
 
+.navegacion a i {
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+    font-size: 1.2em; /* Tamaño del icono */
+}
+
 .navegacion a::after {
     content: "";
     position: absolute;

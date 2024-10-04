@@ -1,28 +1,27 @@
-@import url('https://fonts.googleapics.com/css2?family=Poppings:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-*{
+* {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border_box;
+    box-sizing: border-box; /* Corrige el box-sizing a 'border-box' */
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:url(JapiBankFondo.png);
+    background: url(JapiBankFondo.png) no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
 }
 
-header{
-    position:fixed;
+header {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 0px;
+    padding: 20px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,25 +29,24 @@ header{
 }
 
 /* JapiBank titulo */
-.logo{
+.logo {
     font-size: 2.3rem;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     user-select: none;
     cursor: pointer;
 }
 
-/* navegación opciones*/
-.navegacion a{
+/* Navegación opciones */
+.navegacion a {
     position: relative;
     font-size: 1.1rem;
-    color:rgb(225, 236, 246);
+    color: rgb(225, 236, 246);
     text-decoration: none;
     font-weight: 500;
     margin-left: 40px;
 }
 
-
-.navegacion a::after{
+.navegacion a::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -58,80 +56,78 @@ header{
     background: #fff;
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform 2s;
+    transition: transform 0.3s; /* Mejorar la duración */
 }
 
-.navegacion a:hover::after{
+.navegacion a:hover::after {
     transform: scaleX(1);
-    transform-origin:left;
+    transform-origin: left;
 }
 
-/* Iniciar Sesión boton barra de navegación*/
-.navegacion .btn{
-    /* borde*/
+/* Iniciar Sesión botón barra de navegación */
+.navegacion .btn {
     width: 140px;
     height: 50px;
     background: transparent;
     border: 2px solid #f3f3f3;
     border-radius: 6px;
     cursor: pointer;
-    font-size:1.1rem;
-    /* texto*/
+    font-size: 1.1rem;
     color: #ffffff;
     font-weight: 600;
     margin-left: 40px;
+    transition: background 0.3s, color 0.3s; /* Mejora la transición */
 }
 
-/* boton iniciar sesión seleccionado*/
-.navegacion .btn:hover{
+/* Botón iniciar sesión seleccionado */
+.navegacion .btn:hover {
     background: #fff;
     color: #090f1d;
 }
 
-/*iniciar sesión*/
-.fondo{
+/* Iniciar sesión */
+.fondo {
     position: relative;
     width: 400px;
     height: 500px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
-    backdrop-filter:blur(20px);
+    backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    transition: transform .5s ease height .2s ease;
+    transition: transform .5s ease, height .2s ease;
     margin-top: -50px;
     transform: scale(0);
 }
 
-.fondo.active-btn{
+.fondo.active-btn {
     transform: scale(1);
 }
 
-.fondo.active{
+.fondo.active {
     width: 400px; /* Nuevo ancho para el formulario de registro */
-     
 }
 
-.fondo .contenedor-form{
+.fondo .contenedor-form {
     width: 100%;
     padding: 40px;
 }
 
-.fondo .contenedor-form.login{
+.fondo .contenedor-form.login {
     transition: .17s ease;
     transform: translateX(0);
 }
 
-.fondo.active .contenedor-form.login{
+.fondo.active .contenedor-form.login {
     transition: none;
     transform: translateX(-400px);
 }
 
-.fondo .contenedor-form.registrar{
+.fondo .contenedor-form.registrar {
     position: absolute;
     transition: none;
     transform: translateX(400px);
@@ -139,14 +135,14 @@ header{
     overflow-y: auto;
     width: 80%; 
     height: 80%;
-    
 }
-.fondo.active .contenedor-form.registrar{
+
+.fondo.active .contenedor-form.registrar {
     transition: transform .17s ease;
     transform: translateX(0);
 }
 
-.fondo .icono-cerrar{
+.fondo .icono-cerrar {
     position: absolute;
     top: 0;
     right: 0;
@@ -163,11 +159,11 @@ header{
     color: #F1EFEF;
 }
 
-.fondo .icono-contraseña{
+.fondo .icono-contraseña {
     color: #F1EFEF;
 }
 
-.fondo .icono{
+.fondo .icono {
     color: #F1EFEF;
 }
 
@@ -175,8 +171,8 @@ label {
     color: #F1EFEF; 
 }
 
-/*iniciar sesión titulo*/
-.contenedor-form h2{
+/* Iniciar sesión título */
+.contenedor-form h2 {
     position: relative;
     font-size: 2em;
     color: #ffffff;
@@ -184,7 +180,7 @@ label {
     top: -20px;
 }
 
-.contenedor-input{
+.contenedor-input {
     position: relative;
     width: 100%;
     height: 50px;
@@ -192,8 +188,8 @@ label {
     margin: 40px 0;
 }
 
-.contenedor-input label{
-    position:absolute;
+.contenedor-input label {
+    position: absolute;
     top: 50%;
     left: 5px;
     transform: translateY(-50%);
@@ -205,11 +201,11 @@ label {
 }
 
 .contenedor-input input:focus ~ label,
-.contenedor-input input:valid ~ label{
+.contenedor-input input:valid ~ label {
     top: -5px;
 }
 
-.contenedor-input input{
+.contenedor-input input {
     width: 100%;
     height: 100%;
     background: transparent;
@@ -220,16 +216,15 @@ label {
     padding: 0 35px 0 5px;
 }
 
-.contenedor-input .icono{
+.contenedor-input .icono {
     position: absolute;
     right: 8px;
     font-size: 1.4em;
-    color:#F1EFEF;
+    color: #F1EFEF;
     line-height: 57px;
 }
 
-
-.recordar{
+.recordar {
     padding-top: 20px;
     font-size: .9em;
     margin: -15px 0 15px;
@@ -238,22 +233,22 @@ label {
     font-weight: 600;
 }
 
-.recordar label input{
+.recordar label input {
     accent-color: #090f1d;
     margin-right: 3px;
     cursor: pointer;
 }
 
-.recordar a{
+.recordar a {
     color: #F1EFEF;
     text-decoration: none;
 }
 
-.recordar a:hover{
+.recordar a:hover {
     text-decoration: underline;
 }
 
-.btn{
+.btn {
     width: 100%;
     height: 45px;
     border: none;
@@ -266,18 +261,18 @@ label {
     color: #F1EFEF;
 }
 
-.registrar{
+.registrar {
     font-size: .9em;
     color: #F1EFEF;
     text-align: center;
     margin: 25px 0 10px;
 }
 
-.registrar p a{
+.registrar p a {
     color: #F1EFEF;
     text-decoration: none;
 }
 
-.registrar p a:hover{
+.registrar p a:hover {
     text-decoration: underline;
 }
