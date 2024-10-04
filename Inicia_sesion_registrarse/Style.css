@@ -67,7 +67,7 @@ header{
 }
 
 /* Iniciar Sesión boton barra de navegación*/
-.navegacion .btn{
+.navegacion .btn {
     /* borde*/
     width: 140px;
     height: 50px;
@@ -253,7 +253,20 @@ label {
     text-decoration: underline;
 }
 
-.btn{
+.btn {
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #090f1d;
+    color: #F1EFEF;
+}
+
+.btn_re{
     width: 100%;
     height: 45px;
     border: none;
