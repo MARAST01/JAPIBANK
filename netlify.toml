@@ -1,0 +1,7 @@
+[build]
+  publish = "cview/index.ejs"
+  command = "npm run build"
+
+[dev]
+  command = "node usuario.js"
+  port = 3000
