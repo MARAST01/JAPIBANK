@@ -1,7 +1,12 @@
 [build]
-  publish = "cview/index.ejs"
+  publish = "view/index.ejs"
   command = "npm run build"
 
 [dev]
   command = "node usuario.js"
   port = 3000
+
+[[redirects]]
+  from = "/*"
+  to = "view/index.ejs"
+  status = 200
