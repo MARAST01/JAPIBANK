@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+    <link rel="stylesheet" href="./Style.css">
+    <title>JapiBank</title>
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">JapiBank</h2>
+        <nav class="navegacion">
+            <a href="#"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a>
+            <a href="#"><i class="fa-solid fa-cogs"></i> Servicios</a>
+            <button class="btn">Iniciar Sesión</button>
+        </nav>
+    </header>
+
+    <!-- INICIAR SESIÓN -->
+    <div class="fondo">
+        <span class="icono-cerrar"><i class="fa-solid fa-xmark"></i></span>
+        
+        <!-- Formulario de inicio de sesión -->
+        <div class="contenedor-form login">
+            <h2>Iniciar Sesión</h2>
+            <form action="/iniciar" method="post">
+                <div class="contenedor-input">
+                    <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="email" name="email_iniciar" id="email_iniciar" required>
+                    <label for="#">Gmail</label>
+                </div>
+                <div class="contenedor-input">
+                    <span class="icono"><i id="toggle-password" class="fa-solid fa-lock"></i></span>
+                    <input type="password" name="password_input" id="password-input" required>
+                    <label for="#">Contraseña</label>
+                </div>
+                <div class="recordar">
+                    <label for="#"><input type="checkbox"> Recordar Sesión</label>
+                    <a href="#" class="olvide-link">¿Olvidaste la contraseña?</a>
+                </div>
+                <button type="submit" id="btn_i_s" > Iniciar Sesión</button>
+
+                <div class="registrar">
+                    <p>¿No tienes cuenta? <a href="#" class="registrar-link">Crear Cuenta</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Formulario de registro -->
+        <div class="contenedor-form registrar">
+            <h2>Registrarse</h2>
+            <form action="/validar" method="post">
+
+                <!-- cedula -->
+                <div class="contenedor-input">
+                    <span class="icono"><i class="fa-solid fa-id-card"></i></span>
+                    <input type="text" name="cedula" id="cedula_r" required>
+                    <label for="#">Cedula</label>
+                </div>
+    
+                <!-- nombre -->
+                <div class="contenedor-input">
+                    <span class="icono"><i class="fa-solid fa-user"></i></span>
+                    <input type="text" name="nombre" id="nombre_r" required>
+                    <label for="#">Nombre</label>
+                </div>
+    
+                 <!-- apellido -->
+                <div class="contenedor-input">
+                    <span class="icono"><i class="fa-solid fa-user"></i></span>
+                    <input type="text" name="apellido" id="apellido_r" required>
+                    <label for="#">Apellido</label>
+                </div>
+    
+    
+                <!-- celular -->
+                <div class="contenedor-input">
+                    <span class="icono"><i class="fa-solid fa-phone"></i></span>
+                    <input type="text" name="celular" id="celular_r" required>
+                    <label for="#">Celular</label>
+                </div>
+    
+                <!-- gmail -->
+                <div class="contenedor-input">
+                    <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="email" name="correo" id="gmail_r" required>
+                    <label for="#">Gmail</label>
+                </div>
+        
+                <!-- contraseña -->
+                <div class="contenedor-input">
+                    <span class="icono"><i id="toggle-password_r" class="fa-solid fa-lock"></i></span>
+                    <input type="password"  name="contrasena" id="password_r"  required>
+                    <label for="#">Contraseña</label>
+                </div>
+    
+                <!-- confirmar contraseña -->
+                <div class="contenedor-input">
+                    <span class="icono"><i id="toggle-password_rc" class="fa-solid fa-lock"></i></span>
+                    <input type="password"  name="confirmar_contrasena"  id="confirm_password_r" required>
+                    <label for="#">Confirmar Contraseña</label>
+                </div>
+    
+                <div class="recordar">
+                    <label for="#"><input type="checkbox" id="checkbox_r" >Acepto los terminos y condiciones</label>
+                </div>
+    
+                <!-- boton registrarse -->
+                <button type="submit" id="btn_re" class="btn_re"  disabled> Registrarse</button> 
+    
+                <div class="registrar">
+                    <p>¿Ya tienes cuenta?<a href="#" class="login-link">Iniciar Sesión</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="./app.js"></script>
+</body>
+</html>
