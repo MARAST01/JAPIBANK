@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(../images/JapiBankFondo.png) no-repeat center center fixed;
+    background: url(JapiBankFondo.png) no-repeat center center fixed;
     background-size: cover;
 }
 

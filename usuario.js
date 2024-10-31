@@ -8,6 +8,7 @@ const path = require('path');
 // Configurar la carpeta de archivos estáticos
 app.use(express.static(path.join(__dirname, 'VENTANAS_LOGIN_REGISTRARSE')));
 app.use(express.static(path.join(__dirname, 'VENTANA_INICIO')));
+app.use(express.static(path.join(__dirname, 'VENTANA_OLVIDAR_CONTRASENA')));
 
 let conexion = mysql.createConnection({
     host: 'localhost',
@@ -50,13 +51,19 @@ app.post('/validar', (req, res) => {
                 res.send('<script>alert("Usuario ya registrado"); window.history.back();</script>');
             } else {
                 let registrar = "INSERT INTO USUARIO (cedula, nombre, apellido, celular, correo, contrasena) VALUES (" + cedula + ", '" + nombre + "', '" + apellido + "', " + celular + ", '" + correo + "', '" + password + "')";
-
+                let registrar_cuenta = "INSERT INTO CUENTA (cedula, monto_disponible, saldo_total) VALUES (" + cedula + ", 0.00, 0.00)";
+            
     
     conexion.query(registrar, (error, result) => {
             if (error) {
                 throw(error);
             } else {
-                console.log('Usuario registrado correctamente');
+                conexion.query(registrar_cuenta, (error, result) => {
+                    if (error) {
+                        throw(error);
+                    } else {
+                        res.send('<script>alert("Usuario registrado correctamente"); window.history.back();</script>');
+                    }});
             }});
     }
 
@@ -67,9 +74,9 @@ app.post('/iniciar', (req, res) => {
     let email = datos1.email_iniciar;
     let password = datos1.password_input;
 
-    let buscar = "SELECT cedula,correo,contrasena FROM USUARIO WHERE correo = '"+email+"'";
+    let buscar = "SELECT * FROM USUARIO WHERE correo = '"+email+"'";
     let buscar_correcto = "SELECT * FROM USUARIO WHERE correo = '"+email+"' AND contrasena = '"+password+"'";
-    
+    let cuenta = "SELECT * FROM CUENTA WHERE cedula = (SELECT cedula FROM USUARIO WHERE correo = '"+email+"')";
 
     conexion.query(buscar, (error, result) => {
         if (error) {
@@ -81,7 +88,13 @@ app.post('/iniciar', (req, res) => {
                         throw(error);
                     } else {
                         if (result2.length > 0) {
-                            res.send('<script>window.open("ventana_inicio.html", "_blank");</script>');
+                            conexion.query(cuenta, (error, cuenta2) => {
+                                if (error) {
+                                    throw(error);
+                                }
+                                else{
+                                     res.send('<script>localStorage.setItem("cuenta", JSON.stringify('+JSON.stringify(cuenta2[0])+'));localStorage.setItem("datos", JSON.stringify(' + JSON.stringify(result2[0]) + ')); window.location.href = "ventana_inicio.html";</script>');
+                                }}); 
                         } else {
                             res.send('<script>alert("Contraseña incorrecta"); window.history.back();</script>');
                         }
@@ -99,4 +112,5 @@ app.post('/iniciar', (req, res) => {
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000 http://localhost:3000');
 });
+
 

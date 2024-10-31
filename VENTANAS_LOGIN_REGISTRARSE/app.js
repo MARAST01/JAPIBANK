@@ -14,9 +14,10 @@ let rgmail = 'lljuanjosegallegocalderonll@gmail.com';
 let rpassword = '1234';
 let rconfirmPassword = '1234';
 let raceptaTerminos = false;
-olvide.addEventListener("click", () => {
-    window.location.href = "../olvida/olvida.html";
-});
+// olvide.addEventListener("click", () => {
+    
+    
+// });
 registrarlink.addEventListener("click", () => {
     fondo.classList.add('active');
 });
