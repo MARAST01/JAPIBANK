@@ -12,6 +12,7 @@ body {
     color: white;
 }
 
+/* BARRA DE NAVEGACIÓN CSS */
 header {
     display: flex;
     justify-content: space-between;
@@ -79,11 +80,25 @@ header {
     gap: 10px;
 }
 
+/* BARRA DE NAVEGACIÓN CSS FINAL */
+
+.contenedor {
+    max-width: 1000px; /* Limita el ancho máximo del contenedor */
+    padding: 5px; /* Añade un espacio interior */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente para el efecto de vidrio */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    margin: 20px auto; /* Centra el contenedor horizontalmente */
+    text-align: center; /* Centra el texto y los elementos hijos */
+    backdrop-filter: blur(2px); /* Aplica un desenfoque al fondo del contenedor */
+    background: url(../images/JapiBankFondo.png);
+}
+
 /* Sección del balance con transparencia y blur */
 .balance-section {
     text-align: center;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.5); /* Fondo morado con transparencia */
+    background-color: rgba(19, 45, 70, 0.5); /* Fondo morado con transparencia */
     backdrop-filter: blur(5px); /* Efecto blur */
     border-radius: 20px 20px 0 0; /* Bordes redondeados solo arriba */
 }
@@ -97,19 +112,10 @@ header {
     margin: 10px 0;
 }
 
-button {
-    background-color: #000000;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
 .favorites, .suggested {
     padding: 20px;
-    background-color: #fff;
-    color: black;
+    background-color: #132d46; /* Color de fondo de las secciones */
+    color: rgb(252, 252, 252); /* Color del texto principal e iconos */
 }
 
 .favorite-icons, .suggested-icons {
@@ -118,16 +124,64 @@ button {
     padding: 10px 0;
 }
 
-.icon {
+h2 {
+    color: #ffffff; /* Cambia el código hexadecimal al color que prefieras */
+  }
+
+/* Tarjetas de favoritos y sugeridos */
+
+.tarjeta_fav {
+    padding: 20px 30px; /* Tamaño del recuadro */
+    background-color: #fca311; /* Color de fondo del recuadro */
+    border-radius: 15px; /* Bordes redondeados */
+    font-size: 18px;
+    display: flex;
+    align-items: center;  /* Centra los elementos horizontalmente */
+    flex-direction: column; /* Organiza los elementos en columna */
+    gap: 5px; /* Espacio entre el icono, texto principal y descripción */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra opcional para darle profundidad */
+}
+
+.tarjeta_fav:hover {
+    transform: scale(1.05); /* agranda el recuadro ligeramente */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* agrega sombra */
+  }
+  
+.tarjeta_fav:active {
+    transform: scale(0.95); /* simula una pulsación al hacer clic */
+  }
+
+.tarjeta_sug {
+    padding: 20px 30px; /* Tamaño del recuadro */
+    background-color: #fca311; /* Color de fondo del recuadro */
+    border-radius: 15px; /* Bordes redondeados */
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el icono y el texto */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra opcional para darle profundidad */
+}
+
+.tarjeta_sug:hover {
+    transform: scale(1.05); /* agranda el recuadro ligeramente */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* agrega sombra */
+  }
+  
+.tarjeta_sug:active {
+    transform: scale(0.95); /* simula una pulsación al hacer clic */
+  }
+
+/* texto adicional */
+.description {
+    font-size: 14px; /* Tamaño del texto adicional */
+    color: #132d46; /* Color del texto adicional */
+    margin-top: 5px; /* Espacio entre el texto principal y el adicional */
     text-align: center;
-    padding: 10px;
-    background-color: #f3e5f5;
-    border-radius: 10px;
 }
 
 /* Fondo de las secciones "Movimientos" y "Tu plata" */
 footer {
-    background-color: rgba(255, 255, 255, 0.3); /* Fondo blanco semitransparente */
+    background-color: rgba(19, 45, 70, 0.5); /* Fondo blanco semitransparente */
     backdrop-filter: blur(5px); /* Efecto blur */
     padding: 10px;
     text-align: center;
@@ -141,29 +195,28 @@ footer {
 
 .footer-nav a {
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.5); /* Fondo blanco con transparencia */
-    backdrop-filter: blur(10px); /* Efecto blur */
+    background-color: rgba(252, 163, 17); /* Fondo blanco con transparencia */
     border-radius: 10px; /* Bordes redondeados */
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
     font-weight: 500;
     margin: 0 10px;
     display: inline-block;
 }
 
 .footer-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.7); /* Menos transparencia en hover */
+    background-color: rgb(158, 108, 27); /* animación color boton */
 }
 
 /* Iconos */
-.favorite-icons .icon, .suggested-icons .icon {
+.favorite-icons .tarjeta_fav, .suggested-icons .tarjeta_sug {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
     font-size: 1.2em;
 }
 
-.favorite-icons .icon i, .suggested-icons .icon i {
+.favorite-icons .tarjeta_fav i, .suggested-icons .tarjeta_sug i {
     margin-right: 10px;
     font-size: 1.5em;
 }
