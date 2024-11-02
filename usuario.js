@@ -1,3 +1,4 @@
+const { error } = require('console');
 const express = require('express');
 const mysql = require('mysql');
 
@@ -68,6 +69,23 @@ app.post('/validar', (req, res) => {
     }
 
 }})});
+
+app.get('/correos', (req, res) => {
+    let buscar_correo = "SELECT correo FROM USUARIO";
+    let correos = [];
+
+    conexion.query(buscar_correo, (error, result) => {
+        if (error) {
+            res.status(500).send('Error en la consulta');
+            throw error;
+        } else {
+            for (let i = 0; i < result.length; i++) {
+                correos.push(result[i].correo);
+            }
+            res.json(correos);
+        }
+    });
+});
                 
 app.post('/iniciar', (req, res) => {
     const datos1 = req.body;
@@ -107,6 +125,76 @@ app.post('/iniciar', (req, res) => {
         }
     });
 });
+
+
+        
+       
+
+// app.post('/recuperar', (req, res) => {
+//     const datos = req.body;
+//     let email = datos.email_recuperar;
+//     let buscar = "SELECT * FROM USUARIO WHERE correo = '"+email+"'";
+
+    
+
+//     const codigo_Random = Math.floor(Math.random() * 1000000);
+//     console.log(codigo_Random);
+    
+//     conexion.query(buscar, (error, result) => {
+//         if (error) {
+//             throw(error);
+//         } else {
+//             if (result.length > 0) {
+//                res.send('<script >localStorage.setItem("codigo", '+codigo_Random+');localStorage.setItem("email_code", "'+email+'");window.cambiarParaCodigo();</script>');
+//             } else {
+//                 res.send('<script>alert("Correo no encontrado"); window.history.back();</script>');
+//             }
+//         }
+//     }
+//     );
+
+
+// }
+// );
+
+
+function iniciarSesion(email, res) {
+    let buscar = "SELECT * FROM USUARIO WHERE correo = '" + email + "'";
+    let cuenta = "SELECT * FROM CUENTA WHERE cedula = (SELECT cedula FROM USUARIO WHERE correo = '" + email + "')";
+
+    conexion.query(buscar, (error, result) => {
+        if (error) {
+            throw error;
+        } else {
+            if (result.length > 0) {
+                conexion.query(cuenta, (error, cuenta2) => {
+                    if (error) {
+                        throw error;
+                    } else {
+                        res.send('<script>localStorage.setItem("cuenta", JSON.stringify(' + JSON.stringify(cuenta2[0]) + '));localStorage.setItem("datos", JSON.stringify(' + JSON.stringify(result[0]) + ')); window.location.href = "ventana_inicio.html";</script>');
+                    }
+                });
+            } else {
+                res.send('<script>alert("Contraseña incorrecta"); window.history.back();</script>');
+            }
+        }
+    });
+}
+
+app.post('/verificar-codigo', (req, res) => {
+    const datos = req.body;
+    let codigover = datos.codigo_verificacion;
+
+    res.send('<script>const codigo = localStorage.getItem("codigo");if (codigo == ' + codigover + '){fetch("/iniciar-sesion", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({email: localStorage.getItem("email_code")})}).then(response => response.text()).then(data => document.write(data));}else{alert("Código incorrecto");window.history.back();}</script>');
+});
+
+app.post('/iniciar-sesion', (req, res) => {
+    const datos = req.body;
+    let email = datos.email;
+    iniciarSesion(email, res);
+});
+
+
     
 
 app.listen(3000, () => {

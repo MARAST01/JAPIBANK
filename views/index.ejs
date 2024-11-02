@@ -21,8 +21,8 @@
 
     <!-- INICIAR SESIÓN -->
     <div class="fondo">
-        <span class="icono-cerrar"><i class="fa-solid fa-xmark"></i></span>
-        
+        <span class="icono-cerrar"><a class=" fa-solid fa-xmark"></a></span>
+
         <!-- Formulario de inicio de sesión -->
         <div class="contenedor-form login">
             <h2>Iniciar Sesión</h2>
@@ -32,16 +32,16 @@
                     <input type="email" name="email_iniciar" id="email_iniciar" required>
                     <label for="#">Gmail</label>
                 </div>
-                <div class="contenedor-input">
+ <div class="contenedor-input">
                     <span class="icono"><i id="toggle-password" class="fa-solid fa-lock"></i></span>
                     <input type="password" name="password_input" id="password-input" required>
                     <label for="#">Contraseña</label>
                 </div>
                 <div class="recordar">
                     <label for="#"><input type="checkbox"> Recordar Sesión</label>
-                    <a href="olvida.html" class="olvide-link">¿Olvidaste la contraseña?</a>
+                    <a href="#" class="olvide-link">¿Olvidaste la contraseña?</a>
                 </div>
-                <button type="submit" id="btn_i_s" > Iniciar Sesión</button>
+                <button type="submit" id="btn_i_s"> Iniciar Sesión</button>
 
                 <div class="registrar">
                     <p>¿No tienes cuenta? <a href="#" class="registrar-link">Crear Cuenta</a></p>
@@ -53,71 +53,119 @@
         <div class="contenedor-form registrar">
             <h2>Registrarse</h2>
             <form action="/validar" method="post">
-
                 <!-- cedula -->
                 <div class="contenedor-input">
                     <span class="icono"><i class="fa-solid fa-id-card"></i></span>
                     <input type="text" name="cedula" id="cedula_r" required>
                     <label for="#">Cedula</label>
                 </div>
-    
+
                 <!-- nombre -->
                 <div class="contenedor-input">
                     <span class="icono"><i class="fa-solid fa-user"></i></span>
                     <input type="text" name="nombre" id="nombre_r" required>
                     <label for="#">Nombre</label>
                 </div>
-    
-                 <!-- apellido -->
+
+                <!-- apellido -->
                 <div class="contenedor-input">
                     <span class="icono"><i class="fa-solid fa-user"></i></span>
                     <input type="text" name="apellido" id="apellido_r" required>
                     <label for="#">Apellido</label>
                 </div>
-    
-    
+
                 <!-- celular -->
                 <div class="contenedor-input">
                     <span class="icono"><i class="fa-solid fa-phone"></i></span>
                     <input type="text" name="celular" id="celular_r" required>
                     <label for="#">Celular</label>
                 </div>
-    
+
                 <!-- gmail -->
                 <div class="contenedor-input">
                     <span class="icono"><i class="fa-solid fa-envelope"></i></span>
                     <input type="email" name="correo" id="gmail_r" required>
                     <label for="#">Gmail</label>
                 </div>
-        
+
                 <!-- contraseña -->
                 <div class="contenedor-input">
                     <span class="icono"><i id="toggle-password_r" class="fa-solid fa-lock"></i></span>
-                    <input type="password"  name="contrasena" id="password_r"  required>
+                    <input type="password" name="contrasena" id="password_r" required>
                     <label for="#">Contraseña</label>
                 </div>
-    
+
                 <!-- confirmar contraseña -->
                 <div class="contenedor-input">
                     <span class="icono"><i id="toggle-password_rc" class="fa-solid fa-lock"></i></span>
-                    <input type="password"  name="confirmar_contrasena"  id="confirm_password_r" required>
+                    <input type="password" name="confirmar_contrasena" id="confirm_password_r" required>
                     <label for="#">Confirmar Contraseña</label>
                 </div>
-    
+
                 <div class="recordar">
-                    <label for="#"><input type="checkbox" id="checkbox_r" >Acepto los terminos y condiciones</label>
+                    <label for="#"><input type="checkbox" id="checkbox_r"> Acepto los términos y condiciones</label>
                 </div>
-    
+
                 <!-- boton registrarse -->
-                <button type="submit" id="btn_re" class="btn_re"  disabled> Registrarse</button> 
-    
+                <button type="submit" id="btn_re" class="btn_re" disabled> Registrarse</button>
+
                 <div class="registrar">
-                    <p>¿Ya tienes cuenta?<a href="#" class="login-link">Iniciar Sesión</a></p>
+                    <p>¿Ya tienes cuenta?<a href="#" class="login-link"> Iniciar Sesión</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Formulario de recuperar contraseña -->
+        <div class="contenedor-form recuperar">
+            <h2>Verificar código</h2>
+            <hr>
+            <p style="color: #F1EFEF; text-align:center">Introduzca la dirección de correo electronico asociado a JapiBank.</p>
+            <form >
+                <div class="contenedor-input">
+                    <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="email" name="email_recuperar" id="email_recuperar" required>
+                    <label for="#">Correo Electrónico</label>
+                    <input type="hidden" name="message" id="message" >
+                </div>
+
+                <button type="submit" id="btn_codigo"> Enviar código</button>
+
+                <div class="registrar">
+                    <p>¿Recordaste tu contraseña? <a href="#" class="login-link2">Iniciar Sesión</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="contenedor-form verificar-codigo">
+            <h2>Verificar Código</h2>
+            <hr>
+            <p class="mensaje-codigo">Introduce el código enviado a tu correo.</p>
+        
+            <form action="/verificar-codigo" method="post">
+                <div class="contenedor-input">
+                    <span class="icono"><i class="fa-solid fa-key"></i></span>
+                    <input type="text" name="codigo_verificacion" id="codigo_verificacion" required>
+                    <label for="#">Código de Verificación</label>
+                </div>
+        
+                
+                <button type="submit" id="btn_verificar">Verificar Código</button>
+        
+                <div class="registrar">
+                    <p>¿Ya tienes el código? <a href="#" class="login-link3">Iniciar Sesión</a></p>
                 </div>
             </form>
         </div>
     </div>
     
-    <script src="./app.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('-sr45w4fQWsZ6RTu3');
+    </script>
+      
+    <script  src="./app.js"></script>
+    
+    
 </body>
 </html>

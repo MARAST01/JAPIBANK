@@ -4,7 +4,7 @@
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Corrige el box-sizing a 'border-box' */
+    box-sizing: border-box;
 }
 
 body {
@@ -28,7 +28,6 @@ header {
     z-index: 99;
 }
 
-/* JapiBank titulo */
 .logo {
     font-size: 2.3rem;
     color: rgb(255, 255, 255);
@@ -38,14 +37,12 @@ header {
     margin-right: 30px;
 }
 
-/* Navegación opciones */
 .navegacion a {
     position: relative;
     font-size: 1.1rem;
     color: rgb(225, 236, 246);
     text-decoration: none;
     font-weight: 500;
-    margin-left: 40px;
     margin-left: 30px;
     margin-right: 30px;
 }
@@ -60,7 +57,7 @@ header {
     background: #fff;
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform 0.3s; /* Mejorar la duración */
+    transition: transform 0.3s;
 }
 
 .navegacion a:hover::after {
@@ -68,7 +65,6 @@ header {
     transform-origin: left;
 }
 
-/* Iniciar Sesión botón barra de navegación */
 .navegacion .btn {
     width: 140px;
     height: 50px;
@@ -81,16 +77,14 @@ header {
     font-weight: 600;
     margin-left: 40px;
     margin-right: 30px;
-    transition: background 0.3s, color 0.3s; /* Mejora la transición */
+    transition: background 0.3s, color 0.3s;
 }
 
-/* Botón iniciar sesión seleccionado */
 .navegacion .btn:hover {
     background: #fff;
     color: #090f1d;
 }
 
-/* Iniciar sesión */
 .fondo {
     position: relative;
     width: 400px;
@@ -105,16 +99,13 @@ header {
     align-items: center;
     overflow: hidden;
     transition: transform .5s ease, height .2s ease;
-    margin-top: -50px;
+    margin-top: 120px;
     transform: scale(0);
+
 }
 
 .fondo.active-btn {
     transform: scale(1);
-}
-
-.fondo.active {
-    width: 400px; /* Nuevo ancho para el formulario de registro */
 }
 
 .fondo .contenedor-form {
@@ -132,17 +123,19 @@ header {
     transform: translateX(-400px);
 }
 
-.fondo .contenedor-form.registrar {
+.fondo .contenedor-form.registrar,
+.fondo .contenedor-form.recuperar {
     position: absolute;
     transition: none;
     transform: translateX(400px);
-    height: 550px; /* Nueva altura para el formulario de registro */
+    height: 550px;
     overflow-y: auto;
     width: 80%; 
     height: 80%;
 }
 
-.fondo.active .contenedor-form.registrar {
+.fondo.active .contenedor-form.registrar,
+.fondo.active .contenedor-form.recuperar {
     transition: transform .17s ease;
     transform: translateX(0);
 }
@@ -162,10 +155,12 @@ header {
     z-index: 1;
     font-size: 1.8em;
     color: #F1EFEF;
+
 }
 
-.fondo .icono-contraseña {
-    color: #F1EFEF;
+.fondo .icono-cerrar:hover {
+    background-color: #ff3333; /* Color rojo al pasar el mouse */
+    cursor: pointer;
 }
 
 .fondo .icono {
@@ -176,7 +171,6 @@ label {
     color: #F1EFEF; 
 }
 
-/* Iniciar sesión título */
 .contenedor-form h2 {
     position: relative;
     font-size: 2em;
@@ -280,4 +274,141 @@ label {
 
 .registrar p a:hover {
     text-decoration: underline;
+}
+
+.fondo .contenedor-form.login,
+.fondo .contenedor-form.registrar,
+.fondo .contenedor-form.recuperar {
+    position: absolute;
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.fondo .contenedor-form.login {
+    transform: translateX(0);
+}
+
+.fondo .contenedor-form.registrar,
+.fondo .contenedor-form.recuperar {
+    transform: translateX(400px);
+}
+
+.fondo.active-registro .contenedor-form.login {
+    transform: translateX(-400px);
+}
+
+.fondo.active-registro .contenedor-form.registrar {
+    transform: translateX(0);
+}
+
+.fondo.active-recuperar .contenedor-form.login {
+    transform: translateX(-400px);
+}
+
+.fondo.active-recuperar .contenedor-form.recuperar {
+    transform: translateX(0);
+}
+
+/* Ajusta la altura del fondo cuando se muestra el formulario de recuperación */
+.fondo.active-recuperar {
+    height: 400px; /* Ajusta esta altura según sea necesario */
+}
+
+.fondo .contenedor-form.verificar-codigo {
+    position: absolute;
+    transform: translateX(400px);
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.fondo.active-verificar .contenedor-form.verificar-codigo {
+    transform: translateX(0);
+}
+
+.fondo.active-verificar .contenedor-form.recuperar {
+    transform: translateX(-400px);
+}
+
+.mensaje-codigo {
+    color: #F1EFEF;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+/* Ajusta la altura del contenedor para el formulario de verificación */
+.fondo.active-verificar {
+    height: 400px;
+}
+
+/* Estilo para el input del código */
+#codigo_verificacion {
+    letter-spacing: 2px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.fondo .contenedor-form {
+    position: absolute;
+    width: 100%;
+    padding: 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fondo .contenedor-form.login {
+    transform: translateX(0);
+}
+
+.fondo .contenedor-form.registrar,
+.fondo .contenedor-form.recuperar,
+.fondo .contenedor-form.verificar-codigo {
+    transform: translateX(400px);
+}
+
+/* Estados activos */
+.fondo.active-registro .contenedor-form.login,
+.fondo.active-recuperar .contenedor-form.login,
+.fondo.active-verificar .contenedor-form.login {
+    transform: translateX(-400px);
+}
+
+.fondo.active-registro .contenedor-form.registrar {
+    transform: translateX(0);
+}
+
+.fondo.active-recuperar .contenedor-form.recuperar {
+    transform: translateX(0);
+}
+
+.fondo.active-verificar .contenedor-form.verificar-codigo {
+    transform: translateX(0);
+}
+
+.fondo.active-verificar .contenedor-form.recuperar {
+    transform: translateX(-400px);
+}
+
+/* Asegúrate de que los formularios no sean visibles cuando están fuera */
+.contenedor-form {
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Hacer visible solo el formulario activo */
+.fondo .contenedor-form.login,
+.fondo.active-registro .contenedor-form.registrar,
+.fondo.active-recuperar .contenedor-form.recuperar,
+.fondo.active-verificar .contenedor-form.verificar-codigo {
+    visibility: visible;
+    opacity: 1;
+}
+
+.contenedor-form.recuperar p{
+    
+        color: #F1EFEF;
+        text-decoration: none;
+    
 }
