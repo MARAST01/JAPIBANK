@@ -1,0 +1,90 @@
+body {
+    background: url(../images/JapiBankFondo.png);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fca311;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    background-color: #b47611;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; /* Posiciona el contenedor como base para la imagen */
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 500px) {
+    .container {
+        width: 100%; /* Ocupa el ancho completo de la pantalla en móviles */
+        padding: 15px; /* Reduce el padding para mejor ajuste */
+    }
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.balance {
+    font-size: 18px;
+    color: #f7ff87;
+    margin-bottom: 20px;
+}
+
+.amount {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #fca311;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card p {
+    margin: 0;
+    font-size: 16px;
+    color: #e0e0e0;
+}
+
+.header {
+    justify-content: space-between;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    position: absolute; /* Fija la posición de la imagen en el contenedor */
+    top: 14%; /* Centra verticalmente */
+    left: 69%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta la posición para un centrado perfecto */
+    object-fit: cover;
+    object-position: center;
+}
