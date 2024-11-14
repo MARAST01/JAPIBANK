@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="ventana_transferencia.css">
+    <title>Transferencia</title>
+</head>
+<body>
+    <!-- Header principal de navegación -->
+    <header class="main-header">
+
+        <div class="header-top">
+            <h2 class="logo">JapiBank</h2>
+            <button class="menu-button">☰</button>
+        </div>
+        
+        <nav class="navegacion">
+            <ul>
+            <li><a href="#"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a></li>
+            <li><a href="#"><i class="fa-solid fa-cogs"></i> Servicios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        const menu_button = document.querySelector('.menu-button')
+        const navegacion = document.querySelector('.navegacion')
+        menu_button.addEventListener('click', () => {
+            console.log(navegacion.style.display)
+            if (navegacion.style.display != 'block') {
+                navegacion.style.display = ('block')
+                menu_button.innerHTML = '✖'
+            } else {
+                navegacion.style.display = 'none'
+                menu_button.innerHTML = '☰'
+            }
+        })
+    </script>
+
+    <!-- Contenedor principal -->
+    <main class="main">
+        <div class="container">
+            <div class="header-content">
+                <button class="back-button">←</button>
+                <h1>Envía plata</h1>
+            </div>
+            <form class="form">
+                <div class="input-group">
+                    <label for="cel">Cel </label>
+                    <input type="text" id="cel" placeholder="Número de teléfono">
+                    <button class="contact-button">+</button>
+                </div>
+                <p class="note">Revisa bien el número para enviarle a la persona correcta</p>
+                
+                <div class="input-group">
+                    <label for="amount">¿Cuánto?</label>
+                    <input type="text" id="amount" placeholder="Cantidad">
+                </div>
+                
+                <div class="input-group">
+                    <label for="message">Mensaje</label>
+                    <input type="text" id="message" placeholder="Escribe un mensaje">
+                </div>
+                
+                <p class="section-title">Escoge de donde saldrá la plata</p>
+                <div class="source-card">
+                    <div class="icon"></div>
+                    <span>Disponible</span>
+                    <button class="arrow-button">→</button>
+                </div>
+                
+                <button type="submit" class="submit-button">Sigue</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
