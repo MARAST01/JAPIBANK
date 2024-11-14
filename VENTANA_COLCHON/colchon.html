@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style_colchon.css">
+    <title>Colchón - JapiBank</title>
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">JapiBank</h2>
+        <nav class="navegacion" id="menu">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="sobre-nosotros.html"><i class="fa-solid fa-info-circle"></i> Sobre Nosotros</a>
+            <a href="servicios.html"><i class="fa-solid fa-gears"></i> Servicios</a>
+        </nav>
+        <!-- Botón del menú hamburguesa -->
+        <button class="menu-btn" id="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <main class="contenedor-colchon">
+        <h1>Mi Colchón</h1>
+        <p>Gestiona tus ahorros de forma segura y sencilla.</p>
+
+        <div class="balance-colchon">
+            <h2>Saldo Disponible</h2>
+            <div class="saldo">
+                <span>$0.00</span>
+            </div>
+        </div>
+
+        <div class="acciones">
+            <button class="btn" id="btn-depositar"><i class="fa-solid fa-arrow-up"></i> Depositar a Colchón</button>
+            <button class="btn" id="btn-retirar"><i class="fa-solid fa-arrow-down"></i> Retirar de Colchón</button>
+        </div>
+
+        <section class="transacciones">
+            <h2>Historial de Transacciones</h2>
+            <ul class="lista-transacciones">
+                <li>No hay transacciones recientes</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="colchon.js"></script>
+    <script>
+        // JavaScript para el menú hamburguesa
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('mostrar-menu');
+        });
+    </script>
+</body>
+</html>
