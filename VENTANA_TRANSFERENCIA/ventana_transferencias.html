@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="ventana_tuplata.css">
+    <link rel="stylesheet" href="ventana_transferencia.css">
     <title>Transferencia</title>
 </head>
 <body>
@@ -43,36 +42,34 @@
 
     <!-- Contenedor principal -->
     <main class="main">
-        <div class="container"><div class="header-content"><button class="back-button">←</button><h1>Tu plata</h1></div>
-        <div class="balance-container">
-            <h2>Así está tu plata</h2>
-            <a class = "total-balance">Toda tu plata suma</a>
-            <h1 class="balance-amount">$ 7.202,03</h1>
-
-            <div class="balance-options">
-                <div class="balance-item">
-                    <i class="fa-solid fa-money-bill-wave"></i>
+        <div class="container"><div class="header-content"><button class="back-button">←</button><h1>Envía plata</h1></div>
+        <form class="form">
+            <div class="input-group">
+                <label for="cel"><i class="fa-solid fa-phone"></i></label>
+                <input type="text" id="cel" placeholder="Número de teléfono">
+                <button class="contact-button">+</button></div>
+                
+                <p class="note">Revisa bien el número para enviarle a la persona correcta <i class="fa-solid fa-warning"></i></p>
+                
+                <div class="input-group">
+                    <label for="amount"><i class="fa-solid fa-dollar-sign"></i></label>
+                    <input type="text" id="amount" placeholder="Cantidad de dinero">
+                </div>
+                
+                <div class="input-group">
+                    <label for="message"><i class="fa-solid fa-envelope"></i></label>
+                    <input type="text" id="message" placeholder="Escribe un mensaje">
+                </div>
+                
+                <p class="section-title">Escoge de donde saldrá la plata</p>
+                <div class="source-card">
+                    <div class="icon"></div>
                     <span>Disponible</span>
-                    <span>$ 7.202,03</span>
+                    <button class="arrow-button">→</button>
                 </div>
-                <div class="balance-item">
-                    <i class="fa-solid fa-bed"></i>
-                    <span>Colchón</span>
-                    <span>$ 0,00</span>
-                </div>
-                <div class="balance-item">
-                    <i class="fa-solid fa-credit-card"></i>
-                    <span>Tarjeta</span>
-                </div>
-                <div class="balance-item">
-                    <i class="fa-solid fa-wallet"></i>
-                    <span>Bolsillos</span>
-                </div>
-                <div class="balance-item">
-                    <i class="fa-solid fa-piggy-bank"></i>
-                    <span>Metas</span>
-                </div>
-            </div>
+                
+                <button type="submit" class="submit-button">Sigue</button>
+            </form>
         </div>
     </main>
 </body>

@@ -107,17 +107,15 @@ body {
 /*fin del header principal*/
 
 .container {
-    width: 100% !important; /* Aumenta el ancho para que ocupe casi todo el espacio disponible */
-    max-width: 800px !important; /* Amplía el ancho máximo para pantallas más grandes */
+    width: 90%;
+    max-width: 500px; /* Reduce el ancho máximo */
     padding: 20px;
-    margin: 120px auto; /* Mantén el margen superior para el header */
+    margin: 120px auto; /* Agrega un margen de 20px arriba y abajo, y centra horizontalmente */
     background-color: rgba(19, 45, 70, 0.5);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    justify-content: center;
-    align-items: center;
 }
 
 .header-content {
@@ -140,9 +138,34 @@ h1 {
     font-weight: 600;
 }
 
-.total-balance {
-    font-size: 15px;
-    gap: 5px;
+.form .input-group {
+    margin-right: 10px;
+    gap: 10px; /* Espacio entre el label y el entry*/
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid hsl(260, 54%, 11%);
+    padding: 10px 0;
+}
+
+.form .input-group input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 5px;
+    font-size: 16px;
+    color: #3E2A5E;
+}
+
+.contact-button {
+    background: none;
+    border: none;
+    color: #fca311;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.note {
+    font-size: 12px;
     color: #a8a5a5;
     margin: 5px 0 15px 0;
 }
@@ -155,34 +178,56 @@ h1 {
     margin-bottom: 10px;
 }
 
-.label {
-    font-size: 1rem;
-    width: 100px;
-}
-
-.balance-options {
-    gap: 10px;
-    margin-bottom: 20px;
-    width: 300px; /* ancho frame */
-    height: 280px; /* alto frame */
-}
-
-.balance-item {
+.source-card {
     display: flex;
     align-items: center;
-    background-color: #fca311;
+    background-color: #000000;
     border-radius: 8px;
     padding: 10px;
     margin-bottom: 20px;
-    cursor: pointer;
-    gap: 30px;
 }
 
-.balance-item:hover {
+.source-card:hover {
     transform: scale(1.05); /* agranda el recuadro ligeramente */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* agrega sombra */
   }
   
-.balance-item:active {
+.source-card:active {
     transform: scale(0.95); /* simula una pulsación al hacer clic */
   }
+
+.icon {
+    width: 24px;
+    height: 24px;
+    background-color: #fca311;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.arrow-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #fca311;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #fca311;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.label {
+    margin-right: 10px; /* Espacio entre el label y el input */
+    font-size: 1rem;
+    width: 100px;
+}
+
