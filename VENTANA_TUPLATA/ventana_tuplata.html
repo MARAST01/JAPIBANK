@@ -1,53 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="ventana_tuplata.css">
-<title>Nequi Interface</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ventana_tuplata.css">
+    <title>Transferencia</title>
 </head>
 <body>
-    <div class="container">
-        <div class = "header">
-            <div class="title">Tu plata</div>
-            <img src="file.png" alt = "gato con dinero">
-        </div>
-        <div class="balance">Toda tu plata suma</div>
-        <div class="amount">$ 7.202,03</div>
-        <div class="card">
-            <div>
-                <h3>Disponible</h3>
-                <p>$ 7.202,03</p>
-            </div>
-        </div>
+    <!-- Header principal de navegación -->
+    <header class="main-header">
 
-        <div class="card">
-            <div>
-                <h3>Colchón</h3>
-                <p>$ 0,00</p>
-            </div>
+        <div class="header-top">
+            <h2 class="logo">JapiBank</h2>
+            <button class="menu-button">☰</button>
         </div>
+        
+        <nav class="navegacion">
+            <ul>
+            <li><a href="#"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a></li>
+            <li><a href="#"><i class="fa-solid fa-cogs"></i> Servicios</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="card">
-            <div>
-                <h3>Tarjeta</h3>
-                <p>Saca tu Tarjeta Feliz</p>
-            </div>
-        </div>
+    <script>
+        const menu_button = document.querySelector('.menu-button')
+        const navegacion = document.querySelector('.navegacion')
+        menu_button.addEventListener('click', () => {
+            console.log(navegacion.style.display)
+            if (navegacion.style.display != 'block') {
+                navegacion.style.display = ('block')
+                menu_button.innerHTML = '✖'
+            } else {
+                navegacion.style.display = 'none'
+                menu_button.innerHTML = '☰'
+            }
+        })
+    </script>
 
-        <div class="card">
-            <div>
-                <h3>Bolsillos</h3>
-                <p>Organiza tu plata</p>
-            </div>
-        </div>
+    <!-- Contenedor principal -->
+    <main class="main">
+        <div class="container"><div class="header-content"><button class="back-button">←</button><h1>Tu plata</h1></div>
+        <div class="balance-container">
+            <h2>Así está tu plata</h2>
+            <a class = "total-balance">Toda tu plata suma</a>
+            <h1 class="balance-amount">$ 7.202,03</h1>
 
-        <div class="card">
-            <div>
-                <h3>Metas</h3>
-                <p>Ahorra para un sueño acá</p>
+            <div class="balance-options">
+                <div class="balance-item">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <span>Disponible</span>
+                    <span>$ 7.202,03</span>
+                </div>
+                <div class="balance-item">
+                    <i class="fa-solid fa-bed"></i>
+                    <span>Colchón</span>
+                    <span>$ 0,00</span>
+                </div>
+                <div class="balance-item">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Tarjeta</span>
+                </div>
+                <div class="balance-item">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Bolsillos</span>
+                </div>
+                <div class="balance-item">
+                    <i class="fa-solid fa-piggy-bank"></i>
+                    <span>Metas</span>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>
