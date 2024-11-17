@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style_colchon.css">
+    <title>Colchón - JapiBank</title>
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">JapiBank</h2>
+        <nav class="navegacion" id="menu">
+            <a onclick="window.open('./ventana_inicio.html', '_self')"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="sobre-nosotros.html"><i class="fa-solid fa-info-circle"></i> Sobre Nosotros</a>
+            <a href="servicios.html"><i class="fa-solid fa-gears"></i> Servicios</a>
+        </nav>
+        <!-- Botón del menú hamburguesa -->
+        <button class="menu-btn" id="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <main class="contenedor-colchon">  <button class="back-button" onclick="window.open('./ventana_inicio.html', '_self')">←</button><h1>Envía plata</h1></div>
+        <h1>Mi Colchón</h1>
+        <p>Gestiona tus ahorros de forma segura y sencilla.</p>
+
+        <div class="balance-colchon">
+            <h2>Saldo Disponible</h2>
+            <div class="saldo">
+                <span id="saldoColchon"> </span>
+            </div>
+        </div>
+
+        
+        <form action="/colchon" method="post">
+            <input type="number" name="cantidad" id="cantidad" placeholder="Cantidad a depositar o retirar">
+            <input type="hidden" name="cedula" id="cedula" >
+            <input type="hidden" name="accion" id="accion" >
+        <div class="acciones">
+            
+            <button type="submit" class="btn" name="accionColchon" value="retirarColchon" id="btn-depositar"><i class="fa-solid fa-arrow-up"></i> Depositar a Colchón</button>
+            <button type="submit" class="btn" name="accionColchon" value="retirarColchon" id="btn-retirar"><i class="fa-solid fa-arrow-down"></i> Retirar de Colchón</button>
+        </div>
+        </form>
+
+        <section class="transacciones">
+            <h2>Historial de Transacciones</h2>
+            <p id="detalle-colchon">
+                
+            </p>
+        </section>
+    </main>
+
+    
+    <script>
+        // JavaScript para el menú hamburguesa
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('mostrar-menu');
+        });
+
+        let cuenta = localStorage.getItem("cuenta");
+
+    
+        document.getElementById("cedula").value = cuenta.split(",")[0].split(":")[1];
+ 
+        document.getElementById("btn-depositar").addEventListener("click", () => {
+            document.getElementById("accion").value = "depositarColchon";
+        });
+        document.getElementById("btn-retirar").addEventListener("click", () => {
+            document.getElementById("accion").value = "retirarColchon";
+        });
+
+        let saldo = JSON.parse(localStorage.getItem("colchonCantidad"));
+
+        document.getElementById("saldoColchon").innerHTML = "$" + saldo[0].cantidad;
+        
+        if (localStorage.getItem("TransaccionColchon") && localStorage.getItem("TransaccionColchon") !== "[]") {
+            let colchones = JSON.parse(localStorage.getItem("TransaccionColchon"));
+            let tabla = "<table style='border: 1px solid black; width: 100%; border-collapse: collapse;'>" +
+            "<tr>" +
+            "<th style='border: 1px solid black; padding: 8px;'>Tipo</th>" +
+            "<th style='border: 1px solid black; padding: 8px;'>Cantidad</th>" +
+            "<th style='border: 1px solid black; padding: 8px;'>Fecha</th>" +
+            "</tr>";
+            
+            
+            for (let i = 0; i < colchones.length; i++) {
+                
+            tabla += "<tr>" +
+                "<td style='border: 1px solid black; padding: 8px;'>" + colchones[i].tipo + "</td>" +
+                "<td style='border: 1px solid black; padding: 8px;'>" + colchones[i].cantidad + "</td>" +
+                "<td style='border: 1px solid black; padding: 8px;'>" + colchones[i].fecha.substring(0, 10) + "</td>" +
+                "</tr>";
+            }
+
+            tabla += "</table>";
+            document.getElementById("detalle-colchon").innerHTML = tabla;
+        } else {
+            document.getElementById("detalle-colchon").innerHTML = "No hay transacciones recientes.";
+        }
+
+
+    </script>
+</body>
+</html>

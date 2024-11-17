@@ -91,7 +91,7 @@ header {
     margin: 20px auto; /* Centra el contenedor horizontalmente */
     text-align: center; /* Centra el texto y los elementos hijos */
     backdrop-filter: blur(2px); /* Aplica un desenfoque al fondo del contenedor */
-    background: url(../images/JapiBankFondo.png);
+    background: url(./JapiBankFondo.png);
 }
 
 /* Sección del balance con transparencia y blur */
@@ -145,10 +145,12 @@ h2 {
 .tarjeta_fav:hover {
     transform: scale(1.05); /* agranda el recuadro ligeramente */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* agrega sombra */
+
   }
   
 .tarjeta_fav:active {
     transform: scale(0.95); /* simula una pulsación al hacer clic */
+    
   }
 
 .tarjeta_sug {

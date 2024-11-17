@@ -18,7 +18,7 @@
         
         <nav class="navegacion">
             <ul>
-            <li><a href="#"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a onclick="history.back()"><i class="fa-solid fa-house"></i> Inicio</a></li>
             <li><a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a></li>
             <li><a href="#"><i class="fa-solid fa-cogs"></i> Servicios</a></li>
             </ul>
@@ -42,23 +42,23 @@
 
     <!-- Contenedor principal -->
     <main class="main">
-        <div class="container"><div class="header-content"><button class="back-button">←</button><h1>Envía plata</h1></div>
-        <form class="form">
+        <div class="container"><div class="header-content"><button class="back-button" onclick="history.back()">←</button><h1>Envía plata</h1></div>
+        <form class="form" action="/transferencia" method="post">
             <div class="input-group">
                 <label for="cel"><i class="fa-solid fa-phone"></i></label>
-                <input type="text" id="cel" placeholder="Número de teléfono">
+                <input type="text" name="telefonoRec" id="cel" placeholder="Número de teléfono">
                 <button class="contact-button">+</button></div>
                 
                 <p class="note">Revisa bien el número para enviarle a la persona correcta <i class="fa-solid fa-warning"></i></p>
                 
                 <div class="input-group">
                     <label for="amount"><i class="fa-solid fa-dollar-sign"></i></label>
-                    <input type="text" id="amount" placeholder="Cantidad de dinero">
+                    <input type="text" id="amount" name="cantidadTransferencia" placeholder="Cantidad de dinero">
                 </div>
                 
                 <div class="input-group">
                     <label for="message"><i class="fa-solid fa-envelope"></i></label>
-                    <input type="text" id="message" placeholder="Escribe un mensaje">
+                    <input type="text" id="message" name="mensajeTransferencia" placeholder="Escribe un mensaje">
                 </div>
                 
                 <p class="section-title">Escoge de donde saldrá la plata</p>
@@ -67,10 +67,21 @@
                     <span>Disponible</span>
                     <button class="arrow-button">→</button>
                 </div>
+
+                <input type="hidden" name="cedulaEn" id="cedulaEn" >
+            
                 
-                <button type="submit" class="submit-button">Sigue</button>
+                <button type="submit" class="submit-button">Enviar</button>
             </form>
         </div>
     </main>
+
+
+    <script>
+        let cuenta = localStorage.getItem("cuenta");
+
+    
+        document.getElementById("cedulaEn").value = cuenta.split(",")[0].split(":")[1];
+    </script>
 </body>
 </html>
