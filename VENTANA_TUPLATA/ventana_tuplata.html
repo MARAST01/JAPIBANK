@@ -19,7 +19,7 @@
         
         <nav class="navegacion">
             <ul>
-            <li><a href="#"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a onclick="history.back()"><i class="fa-solid fa-house"></i> Inicio</a></li>
             <li><a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a></li>
             <li><a href="#"><i class="fa-solid fa-cogs"></i> Servicios</a></li>
             </ul>
@@ -43,22 +43,22 @@
 
     <!-- Contenedor principal -->
     <main class="main">
-        <div class="container"><div class="header-content"><button class="back-button">←</button><h1>Tu plata</h1></div>
+        <div class="container"><div class="header-content"><button class="back-button" onclick="history.back()">←</button><h1>Tu plata</h1></div>
         <div class="balance-container">
             <h2>Así está tu plata</h2>
             <a class = "total-balance">Toda tu plata suma</a>
-            <h1 class="balance-amount">$ 7.202,03</h1>
+            <h1 class="totalBalance"></h1>
 
             <div class="balance-options">
                 <div class="balance-item">
                     <i class="fa-solid fa-money-bill-wave"></i>
                     <span>Disponible</span>
-                    <span>$ 7.202,03</span>
+                    <span class="disponible"></span>
                 </div>
                 <div class="balance-item">
                     <i class="fa-solid fa-bed"></i>
                     <span>Colchón</span>
-                    <span>$ 0,00</span>
+                    <span class="colchon"></span>
                 </div>
                 <div class="balance-item">
                     <i class="fa-solid fa-credit-card"></i>
@@ -75,5 +75,31 @@
             </div>
         </div>
     </main>
+
+    <script>
+        const totalBalance = document.querySelector('.totalBalance');
+        const disponible = document.querySelector('.disponible');
+        const colchon = document.querySelector('.colchon');
+
+       
+
+        
+
+        let cuenta= localStorage.getItem("cuenta");
+        let DineroDisponible= cuenta.split(",")[1].split(":")[1];
+
+        let colchonCantidad = JSON.parse(localStorage.getItem("colchonCantidad"));
+
+        let total = parseInt(DineroDisponible) + parseInt(colchonCantidad[0].cantidad);
+
+
+        console.log(DineroDisponible);
+
+        totalBalance.innerHTML = "$ " + total;
+        disponible.innerHTML = "$ " + DineroDisponible;
+        colchon.innerHTML = "$ " + colchonCantidad[0].cantidad;
+        
+
+    </script>
 </body>
 </html>
