@@ -412,3 +412,29 @@ label {
         text-decoration: none;
     
 }
+
+/* responsive para heather */
+@media screen and (min-width: 768px){
+    .main-header {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+    }
+    
+    .header-top {
+        padding-bottom: 0;
+    }
+
+    .navegacion{
+        padding-top: 0;
+        display: block !important;
+    }
+
+    .navegacion ul {
+        flex-direction: row;
+    }
+
+    .menu-button {
+        display: none;
+    }
+}

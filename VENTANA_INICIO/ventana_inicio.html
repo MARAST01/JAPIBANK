@@ -7,17 +7,40 @@
     <link rel="stylesheet" href="style_ventana_inicio.css">
     <title>JapiBank</title>
 </head>
-
 <body>
-    <header>
-        <h2 class="logo">JapiBank</h2>
+    
+     <!-- Header principal de navegación -->
+     <header class="main-header">
 
+        <div class="header-top">
+            <h2 class="logo">JapiBank</h2>
+            <button class="menu-button">☰</button>
+        </div>
+        
         <nav class="navegacion">
-            <a href="#"><i class="fa-solid fa-house"></i> Inicio</a>
-            <a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a>
-            <a href="#"><i class="fa-solid fa-cogs"></i> Servicios</a>
+            <ul>
+            <li><a onclick="history.back()"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a></li>
+            <li><a href="#"><i class="fa-solid fa-cogs"></i> Servicios</a></li>
+            </ul>
         </nav>
     </header>
+
+    <script>
+        const menu_button = document.querySelector('.menu-button')
+        const navegacion = document.querySelector('.navegacion')
+        menu_button.addEventListener('click', () => {
+            console.log(navegacion.style.display)
+            if (navegacion.style.display != 'block') {
+                navegacion.style.display = ('block')
+                menu_button.innerHTML = '✖'
+            } else {
+                navegacion.style.display = 'none'
+                menu_button.innerHTML = '☰'
+            }
+        })
+    </script>
+
 
     <section class="contenedor">
     <section class="balance-section">

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="meta.css">
+    <title>Transferencia</title>
+</head>
+<body>
+    <!-- Header principal de navegación -->
+    <header class="main-header">
+
+        <div class="header-top">
+            <h2 class="logo">JapiBank</h2>
+            <button class="menu-button">☰</button>
+        </div>
+        
+        <nav class="navegacion">
+            <ul>
+            <li><a onclick="history.back()"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a></li>
+            <li><a href="#"><i class="fa-solid fa-cogs"></i> Servicios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        const menu_button = document.querySelector('.menu-button')
+        const navegacion = document.querySelector('.navegacion')
+        menu_button.addEventListener('click', () => {
+            console.log(navegacion.style.display)
+            if (navegacion.style.display != 'block') {
+                navegacion.style.display = ('block')
+                menu_button.innerHTML = '✖'
+            } else {
+                navegacion.style.display = 'none'
+                menu_button.innerHTML = '☰'
+            }
+        })
+    </script>
+
+    <!-- Contenedor principal -->
+    <main class="main">
+        <div class="container">
+            <button class="back-button"><i class="fas fa-arrow-left"></i></button>
+            <h1 class="title">Tus Metas</h1>
+
+            <div class="content">
+              <i class="fas fa-bullseye icon"></i>
+              <p class="description">Aquí estarán tus Metas</p>
+              <button class="create-button">Crear tu Meta</button>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
