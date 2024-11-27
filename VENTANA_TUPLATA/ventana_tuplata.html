@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ventana_tuplata.css">
+    <title>Transferencia</title>
+</head>
+<body>
+    <!-- Header principal de navegación -->
+    <header class="main-header">
+
+        <div class="header-top">
+            <h2 class="logo">JapiBank</h2>
+            <button class="menu-button">☰</button>
+        </div>
+        
+        <nav class="navegacion">
+            <ul>
+            <li><a onclick="history.back()"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a></li>
+            <li><a href="#"><i class="fa-solid fa-cogs"></i> Servicios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        const menu_button = document.querySelector('.menu-button')
+        const navegacion = document.querySelector('.navegacion')
+        menu_button.addEventListener('click', () => {
+            console.log(navegacion.style.display)
+            if (navegacion.style.display != 'block') {
+                navegacion.style.display = ('block')
+                menu_button.innerHTML = '✖'
+            } else {
+                navegacion.style.display = 'none'
+                menu_button.innerHTML = '☰'
+            }
+        })
+    </script>
+
+    <!-- Contenedor principal -->
+    <main class="main">
+        <div class="container"><div class="header-content"><button class="back-button" onclick="history.back()">←</button><h1>Tu plata</h1></div>
+        <div class="balance-container">
+            <h2>Así está tu plata</h2>
+            <a class = "total-balance">Toda tu plata suma</a>
+            <h1 class="totalBalance"></h1>
+
+            <div class="balance-options">
+                <div class="balance-item">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <span>Disponible</span>
+                    <span class="disponible"></span>
+                </div>
+                <div class="balance-item">
+                    <i class="fa-solid fa-bed"></i>
+                    <span>Colchón</span>
+                    <span class="colchon"></span>
+                </div>
+                <div class="balance-item">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Tarjeta</span>
+                </div>
+                <div class="balance-item">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Bolsillos</span>
+                </div>
+                <div class="balance-item">
+                    <i class="fa-solid fa-piggy-bank"></i>
+                    <span>Metas</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const totalBalance = document.querySelector('.totalBalance');
+        const disponible = document.querySelector('.disponible');
+        const colchon = document.querySelector('.colchon');
+
+       
+
+        
+
+        let cuenta= localStorage.getItem("cuenta");
+        let DineroDisponible= cuenta.split(",")[1].split(":")[1];
+
+        let colchonCantidad = JSON.parse(localStorage.getItem("colchonCantidad"));
+
+        let total = parseInt(DineroDisponible) + parseInt(colchonCantidad[0].cantidad);
+
+
+        console.log(DineroDisponible);
+
+        totalBalance.innerHTML = "$ " + total;
+        disponible.innerHTML = "$ " + DineroDisponible;
+        colchon.innerHTML = "$ " + colchonCantidad[0].cantidad;
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style_prestamo.css">
+    <title>Préstamos - JapiBank</title>
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">JapiBank</h2>
+        
+        <nav id="menu" class="navegacion">
+            
+
+            <a onclick="window.open('./ventana_inicio.html', '_self')"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="sobre_nosotros.html"><i class="fa-solid fa-users"></i> Sobre Nosotros</a>
+            <a href="servicios.html"><i class="fa-solid fa-gears"></i> Servicios</a>
+            <a href="prestamos.html"><i class="fa-solid fa-money-check-dollar"></i> Préstamos</a>
+        </nav>
+
+        <!-- Botón del menú hamburguesa -->
+        <button class="menu-btn" id="menu-btn" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <main class="contenedor-prestamos">  <button class="back-button" onclick="window.open('./ventana_inicio.html', '_self')">←</button><h1>Envía plata</h1></div>
+        <h1>Solicita tu Préstamo</h1>
+        <form id="form-prestamo" action="/solicitarPrestamo" method="post">
+            <div class="campo">
+                <label for="monto">Monto del Préstamo:</label>
+                <input type="number" name="monto" id="monto" placeholder="Ingresa el monto" min="1" required>
+            </div>
+            
+            <div class="campo">
+                <label for="plazo">Plazo (meses):</label>
+                <input type="number" name="plazo" id="plazo" placeholder="Ingresa el plazo en meses" min="1" required>
+            </div>
+            
+            <div class="campo">
+                <label for="interes">Tasa de Interés (%):</label>
+                <input type="number" name="interes" id="interes" required>
+            </div>
+            
+            <input type="hidden" name="cedula" id="cedula" >
+            
+
+            <button type="submit" class="btn" id="btn-solicitar">Solicitar Préstamo</button>
+        </form>
+
+        <section class="resultado-prestamo">
+            <h2>Prestamos</h2>
+            <p id="detalle-prestamo"></p>
+
+            <!-- No se ha solicitado ningún préstamo aún. -->
+        </section>
+    </main>
+
+    <!-- <script src="prestamos.js"></script> -->
+
+    <script>
+        
+        document.getElementById("interes").value = "2";
+        document.getElementById("interes").readOnly = true;
+        let cuenta = localStorage.getItem("cuenta");
+
+    
+        document.getElementById("cedula").value = cuenta.split(",")[0].split(":")[1];
+        console.log(localStorage.getItem("prestamo"));
+        
+        if(localStorage.getItem("prestamo") != "[]"){
+            let prestamos = JSON.parse(localStorage.getItem("prestamo"));
+            let tabla = "<table style='border: 1px solid black; width: 100%; border-collapse: collapse;'>" +
+                        "<tr>" +
+                        "<th style='border: 1px solid black; padding: 8px;'>ID</th>" +
+                        "<th style='border: 1px solid black; padding: 8px;'>Monto</th>" +
+                        "<th style='border: 1px solid black; padding: 8px;'>Plazo(Meses)</th>" +
+                        "<th style='border: 1px solid black; padding: 8px;'>Interes(%)</th>" +
+                        "<th style='border: 1px solid black; padding: 8px;'>Total a Pagar</th>" +
+                        "<th style='border: 1px solid black; padding: 8px;'>Fecha de prestamo</th>" +
+                        "</tr>";
+            
+            prestamos.forEach(prestamo => {
+                tabla += "<tr>" +
+                         "<td style='border: 1px solid black; padding: 8px;'>" + prestamo.id + "</td>" +
+                         "<td style='border: 1px solid black; padding: 8px;'>" + prestamo.monto + "</td>" +
+                         "<td style='border: 1px solid black; padding: 8px;'>" + prestamo.plazo + "</td>" +
+                         "<td style='border: 1px solid black; padding: 8px;'>" + prestamo.interes + "</td>" +
+                         "<td style='border: 1px solid black; padding: 8px;'>" + prestamo.totalApagar + "</td>" +
+                         "<td style='border: 1px solid black; padding: 8px;'>" + prestamo.fechaPrestamo.substring(0, 10) + "</td>" +
+                         "</tr>";
+            });
+
+               
+
+            tabla += "</table>";
+            document.getElementById("detalle-prestamo").innerHTML = tabla;
+     
+
+
+
+        } else{
+            document.getElementById("detalle-prestamo").innerHTML = "No se ha solicitado ningún préstamo aún.";
+        }
+       
+        // Función para alternar el menú al hacer clic
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('mostrar-menu');
+        }
+    </script>
+</body>
+</html>
