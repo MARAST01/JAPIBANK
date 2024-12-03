@@ -101,7 +101,6 @@ header {
     transition: transform .5s ease, height .2s ease;
     margin-top: 120px;
     transform: scale(0);
-
 }
 
 .fondo.active-btn {
@@ -155,7 +154,6 @@ header {
     z-index: 1;
     font-size: 1.8em;
     color: #F1EFEF;
-
 }
 
 .fondo .icono-cerrar:hover {
@@ -327,6 +325,18 @@ label {
     transform: translateX(0);
 }
 
+.fondo .contenedor-form.actualizar_contra {
+    position: absolute;
+    transform: translateX(400px);
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    height: 520px;
+}
+
+.fondo.active-verificar .contenedor-form.actualizar_contra {
+    transform: translateX(0);
+}
+
 .fondo.active-verificar .contenedor-form.recuperar {
     transform: translateX(-400px);
 }
@@ -340,6 +350,10 @@ label {
 
 /* Ajusta la altura del contenedor para el formulario de verificación */
 .fondo.active-verificar {
+    height: 400px;
+}
+
+.fondo.active-actualizar {
     height: 400px;
 }
 
@@ -363,14 +377,16 @@ label {
 
 .fondo .contenedor-form.registrar,
 .fondo .contenedor-form.recuperar,
-.fondo .contenedor-form.verificar-codigo {
+.fondo .contenedor-form.verificar-codigo,
+.fondo .contenedor-form.actualizar_contra {
     transform: translateX(400px);
 }
 
 /* Estados activos */
 .fondo.active-registro .contenedor-form.login,
 .fondo.active-recuperar .contenedor-form.login,
-.fondo.active-verificar .contenedor-form.login {
+.fondo.active-verificar .contenedor-form.login,
+.fondo.active-actualizar .contenedor-form.login {
     transform: translateX(-400px);
 }
 
@@ -383,6 +399,10 @@ label {
 }
 
 .fondo.active-verificar .contenedor-form.verificar-codigo {
+    transform: translateX(0);
+}
+
+.fondo.active-actualizar .contenedor-form.actualizar_contra {
     transform: translateX(0);
 }
 
@@ -401,14 +421,98 @@ label {
 .fondo .contenedor-form.login,
 .fondo.active-registro .contenedor-form.registrar,
 .fondo.active-recuperar .contenedor-form.recuperar,
-.fondo.active-verificar .contenedor-form.verificar-codigo {
+.fondo.active-verificar .contenedor-form.verificar-codigo,
+.fondo.active-actualizar .contenedor-form.actualizar_contra {
     visibility: visible;
     opacity: 1;
 }
 
-.contenedor-form.recuperar p{
+.contenedor-form.recuperar p {
+    color: #F1EFEF;
+    text-decoration: none;
+}
+
+.main-header {
+    width: 100vw;
+    max-width: 100%;
+    padding: 20px;
+    background-color: #000000;
+    color: white;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    margin: 0;
+}
+
+.menu-button {
+    font-size: 20px;
+    background-color: #000000;
+    color: white;
+}
+
+.navegacion {
+    display: none;
+    padding-bottom: 10px;
+    animation: navegacion_activa 2s;
+}
+
+@keyframes navegacion_activa {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.navegacion ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 20px;
+}
+
+/* Navegación */
+.navegacion a {
+    color: rgb(225, 236, 246);
+    text-decoration: none;
+}
+
+/* Responsive header */
+@media screen and (min-width: 768px) {
+    .main-header {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+    }
     
-        color: #F1EFEF;
-        text-decoration: none;
-    
+    .header-top {
+        padding-bottom: 0;
+    }
+
+    .navegacion {
+        padding-top: 0;
+        display: block !important;
+    }
+
+    .navegacion ul {
+        flex-direction: row;
+    }
+
+    .menu-button {
+        display: none;
+    }
 }

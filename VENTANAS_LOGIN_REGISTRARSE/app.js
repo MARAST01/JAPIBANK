@@ -7,6 +7,8 @@ const olvidarLink = document.querySelector(".olvide-link");
 const btn = document.querySelector(".navegacion .btn");
 const iconoCerrar = document.querySelector(".icono-cerrar");
 const btnCodigo = document.querySelector("#btn_codigo");
+const btnVerificar = document.getElementById('btn_verificar');
+const btnActualizar = document.getElementById("btn_actualizar");
 
 
         registrarLink.addEventListener("click", (e) => {
@@ -47,14 +49,35 @@ const btnCodigo = document.querySelector("#btn_codigo");
         const random = Math.floor(Math.random() * 1000000);
         localStorage.setItem('codigo', random);
 
+btnVerificar.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (document.querySelector('#codigo_verificacion').value == localStorage.getItem('codigo')) {
+        
+        fondo.classList.add('active-actualizar');
+        fondo.classList.remove('active-verificar');
+    } else {
+        alert('Código incorrecto');
+    }
+});
+
+// btnActualizar.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     fondo.classList.remove('active-actualizar');
+// });
+
 btnCodigo.addEventListener("click", (e) => {
     e.preventDefault();
+    const startTime = performance.now();
 
     
     
 
     const email = document.querySelector('#email_recuperar').value;
     localStorage.setItem('email_code', email);
+
+    document.getElementById("correo_act").value = email;
+    console.log(document.getElementById("correo_act").value);
+   
 
     fondo.classList.remove('active-recuperar');
     const serviceID = 'default_service';
@@ -83,6 +106,9 @@ btnCodigo.addEventListener("click", (e) => {
             .catch(error => console.error('Error al obtener los correos:', error));
     
     
+    const endTime = performance.now();
+    const timeTaken = endTime - startTime;
+    console.log(`Tiempo tomado: ${timeTaken} ms`);
 } );
 
 
@@ -94,6 +120,7 @@ btnCodigo.addEventListener("click", (e) => {
             fondo.classList.remove('active-btn');
             fondo.classList.remove('active-verificar');
             fondo.classList.remove('active-recuperar');
+            fondo.classList.remove('active-actualizar')
         });
 
 password = document.querySelector('#password_r');

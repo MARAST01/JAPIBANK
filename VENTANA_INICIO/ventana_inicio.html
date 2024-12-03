@@ -9,19 +9,40 @@
 </head>
 
 <body>
-    <header>
-        <h2 class="logo">JapiBank</h2>
+    <header class="main-header">
 
+        <div class="header-top">
+            <h2 class="logo">JapiBank</h2>
+            <button class="menu-button">☰</button>
+        </div>
+        
         <nav class="navegacion">
-            <a href="#"><i class="fa-solid fa-house"></i> Inicio</a>
-            <a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a>
-            <a href="#"><i class="fa-solid fa-cogs"></i> Servicios</a>
+            <ul>
+            <li><a href="#"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a></li>
+            <li><a href="perfil.html"><i class="fa-solid fa-user"></i> Perfil</a></li>
+            </ul>
         </nav>
     </header>
 
+    <script>
+        const menu_button = document.querySelector('.menu-button')
+        const navegacion = document.querySelector('.navegacion')
+        menu_button.addEventListener('click', () => {
+            console.log(navegacion.style.display)
+            if (navegacion.style.display != 'block') {
+                navegacion.style.display = ('block')
+                menu_button.innerHTML = '✖'
+            } else {
+                navegacion.style.display = 'none'
+                menu_button.innerHTML = '☰'
+            }
+        })
+    </script>
+
     <section class="contenedor">
     <section class="balance-section">
-        <p>9:38 AM</p>
+        <p id="hora"></p>
 
         <p class="hola-name"><strong></strong></p>
 
@@ -32,11 +53,7 @@
     <section class="favorites">
         <h2>Tus favoritos</h2>
         <div class="favorite-icons">
-            <div class="tarjeta_fav" >
-                <i class="fa-solid fa-credit-card"></i> 
-                Tarjeta 
-                <p class="description">Tu método de pago preferido</p> <!-- Texto adicional -->
-            </div>
+           
 
             <div class="tarjeta_fav" onclick="window.open('./colchon.html', '_self')"><i class="fa-solid fa-bed"></i> 
                 Colchón 
@@ -47,8 +64,12 @@
                 Prestamos
                 <p class="description">Pide tu prestamo</p> <!-- Texto adicional --> 
             </div>
+            <div class="tarjeta_fav" onclick="window.open('./ventana_transferencia.html', '_self')"><i class="fa-solid fa-money-bill"></i> 
+                Transferencias
+                <p class="description">Transfiere</p> <!-- Texto adicional --> 
+            </div>
 
-            <div class="tarjeta_fav"><i class="fa-solid fa-bullseye"></i> 
+            <div class="tarjeta_fav" onclick = "window.open('./meta.html', '_self')"  ><i class="fa-solid fa-bullseye"></i> 
                 Metas 
                 <p class="description">Tus objetivos de ahorro</p> <!-- Texto adicional -->
             </div>
@@ -56,18 +77,11 @@
         </div>
     </section>
 
-    <section class="suggested">
-        <h2>Sugeridos JapiBank</h2>
-        <div class="suggested-icons">
-            <div class="tarjeta_sug"><i class="fa-solid fa-mobile-alt"></i> Paquetes de celular</div>
-            <div class="tarjeta_sug"><i class="fa-solid fa-sim-card"></i> Facturas </div>
-            <div class="tarjeta_sug"><i class="fa-solid fa-money-bill-wave"></i> Créditos</div>
-        </div>
-    </section>
+    
 
     <footer>
         <nav class="footer-nav">
-            <a href="ventana_transferencia.html"><i class="fa-solid fa-exchange-alt"></i> Movimientos</a>
+            <a href="historial.html"><i class="fa-solid fa-exchange-alt"></i> Movimientos</a>
             <a href="ventana_tuplata.html"><i class="fa-solid fa-dollar-sign"></i> Tu plata</a>
         </nav>
     </footer>
