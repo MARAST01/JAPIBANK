@@ -12,83 +12,78 @@ body {
     color: white;
 }
 
-/* BARRA DE NAVEGACIÓN CSS */
-header {
+/* Header principal */
+.main-header {
+    width: 100vw;
+    max-width: 100%;
+    padding: 20px;
+    background-color: #000000;
+    color: white;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-top {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    padding: 20px 0px;
-    background-color: #000000;
 }
 
 .logo {
-    font-size: 2.3rem;
-    color: rgb(255, 255, 255);
-    margin-left: 30px;
-    margin-right: 30px;
-    user-select: none;
-    cursor: pointer;
+    margin: 0;
+}
+
+.menu-button {
+    font-size: 20px;
+    background-color: #000000;
+    color: white;
+}
+
+.navegacion {
+   display: none;
+   padding-bottom: 10px;
+   animation: navegacion_activa 2s;
+}
+
+@keyframes navegacion_activa {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.navegacion ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 20px;
 }
 
 /* Navegación */
 .navegacion a {
-    position: relative;
-    font-size: 1.1rem;
     color: rgb(225, 236, 246);
     text-decoration: none;
-    margin-left: 30px;
-    margin-right: 30px;
-    font-weight: 500;
-    margin-left: 40px;
 }
 
-.navegacion a i {
-    margin-right: 5px; /* Espacio entre el icono y el texto */
-    font-size: 1.2em; /* Tamaño del icono */
-}
-
-.navegacion a::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    bottom: -6px;
-    left: 0;
-    height: 2px;
-    background: #fff;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 2s;
-}
-
-.navegacion a:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-.navegacion .btn:hover {
-    background: #fff;
-    color: #090f1d;
-}
-
-.header-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.header-icons {
-    display: flex;
-    gap: 10px;
-}
+/*fin del header principal*/
 
 /* BARRA DE NAVEGACIÓN CSS FINAL */
 
 .contenedor {
+    margin: 120px auto; /* Mantén el margen superior para el header */
     max-width: 1000px; /* Limita el ancho máximo del contenedor */
     padding: 5px; /* Añade un espacio interior */
     background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente para el efecto de vidrio */
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
     margin: 20px auto; /* Centra el contenedor horizontalmente */
+    margin-top: 90px;
     text-align: center; /* Centra el texto y los elementos hijos */
     backdrop-filter: blur(2px); /* Aplica un desenfoque al fondo del contenedor */
     background: url(./JapiBankFondo.png);
@@ -221,4 +216,93 @@ footer {
 .favorite-icons .tarjeta_fav i, .suggested-icons .tarjeta_sug i {
     margin-right: 10px;
     font-size: 1.5em;
+}
+/* responsive */
+
+/* responsive para heather */
+@media screen and (min-width: 768px){
+    .main-header {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+    }
+    
+    .header-top {
+        padding-bottom: 0;
+    }
+
+    .navegacion{
+        padding-top: 0;
+        display: block !important;
+    }
+
+    .navegacion ul {
+        flex-direction: row;
+    }
+
+    .menu-button {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Ajuste del contenedor principal */
+    .contenedor {
+        width: 90%; /* Usar ancho relativo */
+        margin: 10px auto; /* Reducir márgenes */
+        padding: 10px; /* Reducir padding */
+        border-radius: 10px; /* Mantener bordes redondeados */
+        text-align: left; /* Cambiar alineación del texto */
+        margin-top: 90px;
+    }
+
+    /* Balance Section */
+    .balance-section {
+        padding: 10px; /* Reducir espacio */
+        border-radius: 10px; /* Bordes más pequeños */
+        border-radius: 20px 20px 0 0; /* Bordes redondeados solo arriba */
+    }
+
+    .balance-section h1 {
+        font-size: 1em; /* Texto más pequeño */
+    }
+
+    .balance-section .balance {
+        font-size: 1.5em; /* Ajustar el tamaño de balance */
+    }
+
+    /* Favoritos y sugeridos */
+    .favorite-icons, .suggested-icons {
+        flex-direction: column; /* Cambiar a formato vertical */
+        align-items: center; /* Centrar elementos */
+        gap: 10px; /* Separación entre tarjetas */
+    }
+
+    .tarjeta_fav, .tarjeta_sug {
+        width: 100%; /* Ancho completo en móvil */
+        font-size: 0.9em; /* Reducir el texto */
+        padding: 15px; /* Reducir espacio interno */
+    }
+
+    .tarjeta_fav i, .tarjeta_sug i {
+        font-size: 1.2em; /* Iconos más pequeños */
+    }
+
+    /* Footer */
+    footer {
+        padding: 5px; /* Reducir espacio */
+        border-radius: 0 0 20px 20px; /* Bordes redondeados solo arriba */
+    }
+
+    .footer-nav {
+        flex-direction: column; /* Cambiar a formato vertical */
+        gap: 10px; /* Separar los enlaces */
+    }
+
+    .footer-nav a {
+        width: 90%; /* Botones más grandes y centrados */
+        margin: 5px auto;
+        padding: 10px; /* Reducir padding */
+        font-size: 0.9em; /* Texto más pequeño */
+    }
 }

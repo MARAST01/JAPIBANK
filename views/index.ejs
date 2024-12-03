@@ -9,15 +9,36 @@
 </head>
 
 <body>
-    <header>
-        <h2 class="logo">JapiBank</h2>
+    <header class="main-header">
+        <div class="header-top">
+            <h2 class="logo">JapiBank</h2>
+            <button class="menu-button">☰</button>
+        </div>
+
         <nav class="navegacion">
-            <a href="#"><i class="fa-solid fa-house"></i> Inicio</a>
-            <a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a>
-            <a href="#"><i class="fa-solid fa-cogs"></i> Servicios</a>
-            <button class="btn">Iniciar Sesión</button>
+            <ul>
+            
+            <li><a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a></li>
+            <li><a href="#"><i class="fa-solid fa-cogs"></i> Servicios</a></li>
+            <li><button class="btn">Iniciar Sesión</button></li>
+            </ul>
         </nav>
     </header>
+
+    <script>
+        const menu_button = document.querySelector('.menu-button')
+        const navegacion = document.querySelector('.navegacion')
+        menu_button.addEventListener('click', () => {
+            console.log(navegacion.style.display)
+            if (navegacion.style.display != 'block') {
+                navegacion.style.display = ('block')
+                menu_button.innerHTML = '✖'
+            } else {
+                navegacion.style.display = 'none'
+                menu_button.innerHTML = '☰'
+            }
+        })
+    </script>
 
     <!-- INICIAR SESIÓN -->
     <div class="fondo">
@@ -153,6 +174,39 @@
         
                 <div class="registrar">
                     <p>¿Ya tienes el código? <a href="#" class="login-link3">Iniciar Sesión</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="contenedor-form actualizar_contra">
+            <h2>Actualizar contraseña</h2>
+            <hr>
+            <p style="color: #F1EFEF; text-align:center">Introduzca tu nueva contraseña.</p>
+            <form action="/actualizar_contra" method="post">
+                
+                <input type="hidden" name="correo_act" id="correo_act" value="<script>document.write(localStorage.getItem('email_code'));</script>">
+                   
+                
+                <div class="contenedor-input">
+                    <span class="icono"><i id="toggle-password_r" class="fa-solid fa-lock"></i></span>
+                    <input type="text" name="act_contraseña" id="act_contraseña" required>
+                    <label for="#">Contraseña</label>
+                    
+                    
+                </div>
+
+                <div class="contenedor-input">
+                    <span class="icono"><i id="toggle-password_r" class="fa-solid fa-lock"></i></span>
+                    
+                    <input type="text" name="act_contraseña2" id="act_contraseña2" required>
+                    <label for="#">Confirmar contraseña</label>
+                    
+                </div>
+
+                <button type="submit" id="btn_actualizar"> Actualizar</button>
+
+                <div class="registrar">
+                    <p>¿Recordaste tu contraseña? <a href="#" class="login-link2">Iniciar Sesión</a></p>
                 </div>
             </form>
         </div>

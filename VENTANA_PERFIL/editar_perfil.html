@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style_perfil.css">
+    <title>Perfil - JapiBank</title>
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">JapiBank</h2>
+        <nav class="navegacion" id="menu">
+            <a href="ventana_inicio.html"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="sobre_nosotros.html"><i class="fa-solid fa-users"></i> Sobre Nosotros</a>
+            <a href="servicios.html"><i class="fa-solid fa-gears"></i> Servicios</a>
+        </nav>
+        <button class="menu-btn" id="menu-btn"title="Menú" >
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Botones flotantes de accesibilidad -->
+<div class="accesibilidad">
+    <!-- Botón para aumentar el tamaño de texto -->
+    <button id="aumentar-texto" class="btn-accesibilidad" title="Aumentar tamaño de texto">
+        <i class="fa-solid fa-plus"></i>
+    </button>
+    <!-- Botón para disminuir el tamaño de texto -->
+    <button id="disminuir-texto" class="btn-accesibilidad" title="Disminuir tamaño de texto">
+        <i class="fa-solid fa-minus"></i>
+    </button>
+</div>
+
+<!-- Botón flotante para invertir colores -->
+<button id="invertir-colores-btn" class="btn-accesibilidad" title="Invertir colores">
+    <i class="fa-solid fa-adjust"></i>
+</button>
+
+    </header>
+
+    <main class="contenedor-perfil">
+        <h1>Perfil</h1>
+        <div class="perfil">
+            <div class="icono-perfil">
+                <i class="fa-solid fa-user-circle"></i>
+            </div>
+            <form action="/editar_perfil" method="post">
+            <div class="info-perfil">
+                
+                    <input type="hidden" id="cedula" name="cedula">
+                    <p><strong>Nombre:</strong><input type="text" id="nombre" name="nombre" class="input-perfil"></p>
+                    <p><strong>Apellido:</strong><input type="text" id="apellido" name="apellido" class="input-perfil"></p>
+                    <p><strong>Correo:</strong><input type="email" id="correo" name="correo" class="input-perfil"></p>
+                    <p><strong>Teléfono:</strong><input type="tel" id="telefono" name="telefono" class="input-perfil"></p>
+               
+            </div>
+        </div>
+        <div class="acciones">
+            <button class="btn" type="submit" id="confirmar-editar"><i class="fa-solid fa-user-edit"></i> Confirmar</button>
+        </form>
+            <button class="btn" id="atras"><i class="fa-solid fa-right-from-bracket"></i> Atras</button>
+        </div>
+    </main>
+
+    <script>
+        // Mostrar u ocultar el menú hamburguesa
+        document.getElementById('menu-btn').addEventListener('click', () => {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('mostrar-menu');
+        });
+
+        
+
+        // Botón de cerrar sesión
+        document.getElementById('atras').addEventListener('click', () => {
+            window.location.href = 'perfil.html';
+        });
+
+   // Variables iniciales
+   let textoActual = parseFloat(localStorage.getItem('tamanoTexto')) || 16;
+    let esquemaInvertido = localStorage.getItem('esquemaInvertido') === 'true';
+
+    // Aplicar cambios iniciales
+    document.documentElement.style.fontSize = `${textoActual}px`;
+    if (esquemaInvertido) {
+        document.body.classList.add('invertir-colores');
+    }
+
+    // Aumentar tamaño de texto
+    document.getElementById('aumentar-texto').addEventListener('click', () => {
+        textoActual += 2;
+        document.documentElement.style.fontSize = `${textoActual}px`;
+        localStorage.setItem('tamanoTexto', textoActual);
+    });
+
+    // Disminuir tamaño de texto
+    document.getElementById('disminuir-texto').addEventListener('click', () => {
+        if (textoActual > 12) { // Evitar tamaño muy pequeño
+            textoActual -= 2;
+            document.documentElement.style.fontSize = `${textoActual}px`;
+            localStorage.setItem('tamanoTexto', textoActual);
+        }
+    });
+
+    // Invertir colores
+    document.getElementById('invertir-colores-btn').addEventListener('click', () => {
+        document.body.classList.toggle('invertir-colores');
+        esquemaInvertido = !esquemaInvertido;
+        localStorage.setItem('esquemaInvertido', esquemaInvertido);
+    });
+
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    document.getElementById('cedula').value = usuario.cedula;
+    document.getElementById('nombre').value = usuario.nombre;
+    document.getElementById('apellido').value = usuario.apellido;
+    document.getElementById('correo').value = usuario.correo;
+    document.getElementById('telefono').value = usuario.celular;
+
+
+</script>
+
+
+
+</body>
+</html>
