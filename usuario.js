@@ -154,7 +154,7 @@ app.post('/iniciar', (req, res) => {
                                                                             if (error) {
                                                                                 throw error;
                                                                             } else {
-                                                                                res.send('<script>localStorage.setItem("prestamo", JSON.stringify(' + JSON.stringify(prestamo2) + '));localStorage.setItem("cuenta", JSON.stringify(' + JSON.stringify(cuenta2[0]) + '));localStorage.setItem("datos", JSON.stringify(' + JSON.stringify(result2[0]) + '));localStorage.setItem("TransaccionColchon", JSON.stringify(' + JSON.stringify(colchon2) + '));localStorage.setItem("colchonCantidad", JSON.stringify(' + JSON.stringify(colchonCantidad2) + '));localStorage.setItem("meta", JSON.stringify(' + JSON.stringify(meta2) + '));localStorage.setItem("historialEnvia", JSON.stringify(' + JSON.stringify(historialEnvia2) + '));localStorage.setItem("historialRecibe", JSON.stringify(' + JSON.stringify(historialRecibe2) + '));window.location.href = "ventana_inicio.html";</script>');
+                                                                                res.send('<script>localStorage.setItem("prestamo", JSON.stringify(' + JSON.stringify(prestamo2) + '));localStorage.setItem("cuenta", JSON.stringify(' + JSON.stringify(cuenta2[0]) + '));localStorage.setItem("datos", JSON.stringify(' + JSON.stringify(result2[0]) + '));localStorage.setItem("TransaccionColchon", JSON.stringify(' + JSON.stringify(colchon2) + '));localStorage.setItem("colchonCantidad", JSON.stringify(' + JSON.stringify(colchonCantidad2) + '));localStorage.setItem("meta", JSON.stringify(' + JSON.stringify(meta2) + '));localStorage.setItem("historialEnvia", JSON.stringify(' + JSON.stringify(historialEnvia2) + '));localStorage.setItem("historialRecibe", JSON.stringify(' + JSON.stringify(historialRecibe2) + ')); localStorage.setItem("usuario", JSON.stringify(' + JSON.stringify(result2[0]) + ')); window.location.href = "ventana_inicio.html";</script>');
                                                                             }
                                                                         }
                                                                         );
@@ -189,100 +189,6 @@ app.post('/iniciar', (req, res) => {
 }
 );
                     
-
-
-
-
-        
-       
-
-// app.post('/recuperar', (req, res) => {
-//     const datos = req.body;
-//     let email = datos.email_recuperar;
-//     let buscar = "SELECT * FROM USUARIO WHERE correo = '"+email+"'";
-
-    
-
-//     const codigo_Random = Math.floor(Math.random() * 1000000);
-//     console.log(codigo_Random);
-    
-//     conexion.query(buscar, (error, result) => {
-//         if (error) {
-//             throw(error);
-//         } else {
-//             if (result.length > 0) {
-//                res.send('<script >localStorage.setItem("codigo", '+codigo_Random+');localStorage.setItem("email_code", "'+email+'");window.cambiarParaCodigo();</script>');
-//             } else {
-//                 res.send('<script>alert("Correo no encontrado"); window.history.back();</script>');
-//             }
-//         }
-//     }
-//     );
-
-
-// }
-// );
-
-
-// function iniciarSesion(email, res) {
-//     let buscar = "SELECT * FROM USUARIO WHERE correo = '" + email + "'";
-//     let cuenta = "SELECT * FROM CUENTA WHERE cedula = (SELECT cedula FROM USUARIO WHERE correo = '" + email + "')";
-//     let prestamo = "SELECT * FROM PRESTAMO WHERE cedula = (SELECT cedula FROM USUARIO WHERE correo = '" + email + "')";
-//     let colchon = "SELECT * FROM TRANSACCION_COLCHON WHERE cedula = (SELECT cedula FROM USUARIO WHERE correo = '" + email + "')";
-//     let colchonCantidad = "SELECT cantidad FROM COLCHON WHERE cedula = (SELECT cedula FROM USUARIO WHERE correo = '" + email + "')";
-
-    
-//     conexion.query(buscar, (error, result) => {
-//         if (error) {
-//             throw error;
-//         } else {
-//             if (result.length > 0) {
-//                 conexion.query(prestamo,  (error, prestamo2) => {
-//                     if (error) {
-//                         throw error;
-//                     } else {
-//                         conexion.query(cuenta, (error, cuenta2) => {
-//                             if (error) {
-//                                 throw error;
-//                             } else {
-//                                conexion.query(colchon, (error, colchon2) => {
-//                                       if (error) {
-//                                         throw error;
-//                                       } else {
-//                                         conexion.query(colchonCantidad, (error, colchonCantidad2) => {
-//                                             if (error) {
-//                                                 throw error;
-//                                             } else {
-//                                                 res.send('<script>localStorage.setItem("prestamo", JSON.stringify(' + JSON.stringify(prestamo2) + '));localStorage.setItem("cuenta", JSON.stringify(' + JSON.stringify(cuenta2[0]) + '));localStorage.setItem("datos", JSON.stringify(' + JSON.stringify(result[0]) + '));localStorage.setItem("TransaccionColchon", JSON.stringify(' + JSON.stringify(colchon2) + '));localStorage.setItem("colchonCantidad", JSON.stringify(' + JSON.stringify(colchonCantidad2[0]) + ')); window.location.href = "ventana_inicio.html";</script>');
-//                                             }
-//                                         });
-//                                       }
-//                                  });
-//                             } 
-//                     } );
-//                 }});
-//             } else {
-//                 res.send('<script>alert("Contraseña incorrecta"); window.history.back();</script>');
-//             }
-//         }
-//     });
-// }
-
-
-
-// app.post('/verificar-codigo', (req, res) => {
-//     const datos = req.body;
-//     let codigover = datos.codigo_verificacion;
-
-//     res.send('<script>const codigo = localStorage.getItem("codigo");if (codigo == ' + codigover + '){fetch("/iniciar-sesion", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({email: localStorage.getItem("email_code")})}).then(response => response.text()).then(data => document.write(data));}else{alert("Código incorrecto");window.history.back();}</script>');
-// });
-
-app.post('/iniciar-sesion', (req, res) => {
-    const datos = req.body;
-    let email = datos.email;
-    iniciarSesion(email, res);
-});
-
 app.post('/editar_perfil', (req, res) => {
     if(confirm("¿Está seguro que desea editar su perfil?")){
     const datos = req.body;
@@ -398,7 +304,9 @@ app.post('/transferencia', (req, res) => {
         let transferencia = "INSERT INTO TRANSFERENCIA (cedulaEnviador, cedulaReceptor, cantidad, mensaje) VALUES (" + cedulaEn + ", " + cedulaRec2[0].cedula + ", " + cantidad + ", '" + mensaje + "')";
         let actualizarCuentaEnviador = "UPDATE CUENTA SET monto_disponible = monto_disponible - " + cantidad + " WHERE cedula = " + cedulaEn;
         let actualizarCuentaReceptor = "UPDATE CUENTA SET monto_disponible = monto_disponible + " + cantidad + " WHERE cedula = " + cedulaRec2[0].cedula;
-        
+        let historialEnvia = "SELECT * FROM TRANSFERENCIA WHERE cedulaEnviador = (SELECT cedula FROM USUARIO WHERE cedula = '" + cedulaEn + "') ORDER BY fechaTransferencia DESC";
+        let historialRecibe = "SELECT * FROM TRANSFERENCIA WHERE cedulaReceptor = (SELECT cedula FROM USUARIO WHERE cedula = '" + cedulaEn + "') ORDER BY fechaTransferencia DESC"; 
+    
         conexion.query(transferencia, (error, result) => {
             if (error) {
                 throw error;
@@ -411,7 +319,21 @@ app.post('/transferencia', (req, res) => {
                             if (error) {
                                 throw error;
                             } else {
-                                res.send('<script>alert("Transferencia realizada correctamente"); window.location.href = "colchon.html";</script>');
+                                conexion.query(historialEnvia, (error, historialEnvia2) => {
+                                    if (error) {
+                                        throw error;
+                                    } else {
+                                        conexion.query(historialRecibe, (error, historialRecibe2) => {
+                                            if (error) {
+                                                throw error;
+                                            } else {
+                                                res.send('<script>alert("Transferencia realizada correctamente"); localStorage.setItem("historialEnvia", JSON.stringify(' + JSON.stringify(historialEnvia2) + '));localStorage.setItem("historialRecibe", JSON.stringify(' + JSON.stringify(historialRecibe2) + ')); window.location.href = "ventana_transferencia.html";</script>');
+                                                  
+                                            }
+                                        });
+                                    }
+                                });
+                              
                             }
                         });
                     }
