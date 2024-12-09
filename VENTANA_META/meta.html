@@ -43,17 +43,20 @@
 
     <!-- Contenedor principal -->
     <main class="main">
-        <div class="container">
-            <button class="back-button" onclick="history.back()"><i class="fas fa-arrow-left"></i></button>
-            <h1 class="title">Tus Metas</h1>
+        <section class="contenedor-grande">
+            <div class="head"><button class="back-button" onclick="history.back()"><i class="fas fa-arrow-left"></i></button><h1 class="title">Tus Metas</h1></div>
 
+            <section class="contenedor-pequeño">
             <div class="content">
               <i class="fas fa-bullseye icon"></i>
               <section id="metas">
+            </section>
 
               </section>
+              <footer>
               <button class="create-button" onclick="location.href='crear_meta.html'">Crear Meta</button>
-        </div>
+              </footer>
+        </section>
     </main>
 
     <script>
