@@ -274,10 +274,9 @@ h1 {
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
     margin: 20px auto; /* Centra el contenedor horizontalmente */
-    margin-top: 90px;
+    margin-top: 150px;
     text-align: center; /* Centra el texto y los elementos hijos */
     backdrop-filter: blur(2px); /* Aplica un desenfoque al fondo del contenedor */
-    background: url(./JapiBankFondo.png);
 }
 
 .contenedor-pequeño {
@@ -297,6 +296,8 @@ footer {
 
 .head {
     text-align: left;
+    display: flex;
+    gap: 10px;
     padding: 20px;
     background-color: rgba(19, 45, 70, 0.5); /* Fondo morado con transparencia */
     backdrop-filter: blur(5px); /* Efecto blur */
