@@ -24,8 +24,9 @@ header {
 }
 
 .logo {
-    font-size: 1.5em;
+    margin: 0;
     color: #fca311;
+    font-size: 50px;
 }
 
 .navegacion a {

@@ -44,27 +44,46 @@
     <!-- Contenedor principal -->
   
     <main class="main">
-      <div class="container">
-        <div class="goal-window">
-            <button class="back-button"><i class="fas fa-arrow-left"></i></button><h1 class="title">Crea tu Meta</h1>
-            <div class="goal-container">
-                <div class="image-placeholder">
-                    <i class="fa-solid fa-star"></i>
-                </div>
-                <form action="/crear_meta" method="post">
-                    <input type="hidden" name="cedula" id="cedula" >
-                <input type="text" name="nombreMeta" class="meta-input" placeholder="Nombre de tu Meta">
-                <div class="meta-date">
-                    <label>¿Cuándo quieres lograrlo?</label>
-                    <input name="fecha" type="date">
-                </div>
-            </div>
-            <button type="submit" class="create-meta-button">Crea tu Meta</button>
-        </form>
+        <section class="contenedor-grande">
+          <div class="head">
+            <button class="back-button" onclick="history.back()">←</button>
+            <h1>Crea tu Meta</h1>
+          </div>
+      
+          <section class="contenedor-pequeño">
+            <img 
+              src="https://cdn-icons-png.flaticon.com/512/9602/9602940.png" 
+              width="80" 
+              height="80"
+              alt="Ícono representativo"
+              aling="center"
+            > 
+            <h2>¡Estás a un paso de lograrlo!</h2>
+            <label>¿Qué quieres lograr?</label>
+            <form action="/crear_meta" method="post">
+              <input type="hidden" name="cedula" id="cedula">
+      
+              <input type="text" name="nombreMeta" id="nombreMeta" class="meta-input" placeholder="Nombre de tu Meta" required>
+      
+              <label>¿Cuánto necesitas?</label>
+              <input type="number" name="monto" id="monto" class="meta-input" placeholder="Monto de tu Meta" required>
+      
+              <div class="meta-date">
+                <label>¿Cuándo quieres lograrlo?</label>
+                <input id="fecha" name="fecha" type="date" required>
+              </div>
 
-        </div>
-      </div>
-    </main>
+            </section>
+              <footer>
+                <button type="submit" class="create-meta-button">Crea tu Meta</button>
+              </footer>
+            </form>
+          </section>
+      </main>
+      
+      
+
+
     <script> 
         document.querySelector('.back-button').addEventListener('click', () => {
             window.history.back();

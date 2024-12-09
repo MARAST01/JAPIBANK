@@ -10,17 +10,17 @@
 
 <body>
     <header class="main-header">
+
         <div class="header-top">
             <h2 class="logo">JapiBank</h2>
             <button class="menu-button">☰</button>
         </div>
-
+        
         <nav class="navegacion">
             <ul>
-            
             <li><a href="#"><i class="fa-solid fa-info-circle"></i> Sobre nosotros</a></li>
             <li><a href="#"><i class="fa-solid fa-cogs"></i> Servicios</a></li>
-            <li><button class="btn">Iniciar Sesión</button></li>
+            <button class="btn">Iniciar Sesión</button>
             </ul>
         </nav>
     </header>
@@ -46,14 +46,18 @@
 
         <!-- Formulario de inicio de sesión -->
         <div class="contenedor-form login">
-            <h2>Iniciar Sesión</h2>
+            <h2 style="color: #fca311">Iniciar Sesión</h2>
+
+                <img src="https://cdn-icons-png.freepik.com/256/9602/9602936.png?uid=R172792023"  width="50" height="50">
+                <p style="color: #F1EFEF; text-align:center">¡Nos alegra verte de vuelta!</p>
+
             <form action="/iniciar" method="post">
                 <div class="contenedor-input">
                     <span class="icono"><i class="fa-solid fa-envelope"></i></span>
                     <input type="email" name="email_iniciar" id="email_iniciar" required>
                     <label for="#">Gmail</label>
                 </div>
- <div class="contenedor-input">
+                <div class="contenedor-input">
                     <span class="icono"><i id="toggle-password" class="fa-solid fa-lock"></i></span>
                     <input type="password" name="password_input" id="password-input" required>
                     <label for="#">Contraseña</label>
@@ -62,7 +66,7 @@
                     <label for="#"><input type="checkbox"> Recordar Sesión</label>
                     <a href="#" class="olvide-link">¿Olvidaste la contraseña?</a>
                 </div>
-                <button type="submit" id="btn_i_s"> Iniciar Sesión</button>
+                <button class="btn" type="submit" id="btn_i_s"> Iniciar Sesión</button>
 
                 <div class="registrar">
                     <p>¿No tienes cuenta? <a href="#" class="registrar-link">Crear Cuenta</a></p>
@@ -72,7 +76,11 @@
 
         <!-- Formulario de registro -->
         <div class="contenedor-form registrar">
-            <h2>Registrarse</h2>
+            <h2 style="color: #fca311">Registrarse</h2>
+
+            <img src="https://cdn-icons-png.freepik.com/256/9602/9602940.png?uid=R172792023"  width="50" height="50">
+            <p style="color: #F1EFEF; text-align:center">¡Nos hace JAPI saber que te unes!</p>
+
             <form action="/validar" method="post">
                 <!-- cedula -->
                 <div class="contenedor-input">
@@ -128,7 +136,7 @@
                 </div>
 
                 <!-- boton registrarse -->
-                <button type="submit" id="btn_re" class="btn_re" disabled> Registrarse</button>
+                <button class= "btn" type="submit" id="btn_re" class="btn_re" disabled> Registrarse</button>
 
                 <div class="registrar">
                     <p>¿Ya tienes cuenta?<a href="#" class="login-link"> Iniciar Sesión</a></p>
@@ -139,8 +147,10 @@
         <!-- Formulario de recuperar contraseña -->
         <div class="contenedor-form recuperar">
             <h2>Verificar código</h2>
-            <hr>
-            <p style="color: #F1EFEF; text-align:center">Introduzca la dirección de correo electronico asociado a JapiBank.</p>
+
+            <img src="https://cdn-icons-png.freepik.com/256/9603/9603016.png?uid=R172792023"  width="50" height="50">
+            <p style="color: #F1EFEF; text-align:center">Introduce la dirección de correo electronico asociado a JapiBank.</p>
+
             <form >
                 <div class="contenedor-input">
                     <span class="icono"><i class="fa-solid fa-envelope"></i></span>
@@ -149,7 +159,7 @@
                     <input type="hidden" name="message" id="message" >
                 </div>
 
-                <button type="submit" id="btn_codigo"> Enviar código</button>
+                <button class= "btn" type="submit" id="btn_codigo"> Enviar código</button>
 
                 <div class="registrar">
                     <p>¿Recordaste tu contraseña? <a href="#" class="login-link2">Iniciar Sesión</a></p>
@@ -174,39 +184,6 @@
         
                 <div class="registrar">
                     <p>¿Ya tienes el código? <a href="#" class="login-link3">Iniciar Sesión</a></p>
-                </div>
-            </form>
-        </div>
-
-        <div class="contenedor-form actualizar_contra">
-            <h2>Actualizar contraseña</h2>
-            <hr>
-            <p style="color: #F1EFEF; text-align:center">Introduzca tu nueva contraseña.</p>
-            <form action="/actualizar_contra" method="post">
-                
-                <input type="hidden" name="correo_act" id="correo_act" value="<script>document.write(localStorage.getItem('email_code'));</script>">
-                   
-                
-                <div class="contenedor-input">
-                    <span class="icono"><i id="toggle-password_r" class="fa-solid fa-lock"></i></span>
-                    <input type="text" name="act_contraseña" id="act_contraseña" required>
-                    <label for="#">Contraseña</label>
-                    
-                    
-                </div>
-
-                <div class="contenedor-input">
-                    <span class="icono"><i id="toggle-password_r" class="fa-solid fa-lock"></i></span>
-                    
-                    <input type="text" name="act_contraseña2" id="act_contraseña2" required>
-                    <label for="#">Confirmar contraseña</label>
-                    
-                </div>
-
-                <button type="submit" id="btn_actualizar"> Actualizar</button>
-
-                <div class="registrar">
-                    <p>¿Recordaste tu contraseña? <a href="#" class="login-link2">Iniciar Sesión</a></p>
                 </div>
             </form>
         </div>
