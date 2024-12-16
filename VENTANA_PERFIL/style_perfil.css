@@ -24,9 +24,8 @@ header {
 }
 
 .logo {
-    margin: 0;
+    font-size: 1.5em;
     color: #fca311;
-    font-size: 50px;
 }
 
 .navegacion a {
@@ -201,15 +200,4 @@ strong {
 .invertir-colores {
     filter: invert(1);
     transition: filter 0.3s ease;
-}
-
-.input-perfil{
-background-color: transparent;
-border: 2px solid #fca311;
-color: #fff;
-padding: 10px;
-font-size: 1.2em;
-border-radius: 5px;
-width: 100%;
-box-sizing: border-box;
 }

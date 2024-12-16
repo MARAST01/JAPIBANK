@@ -111,6 +111,38 @@
             const menu = document.getElementById('menu');
             menu.classList.toggle('mostrar-menu');
         }
+                // Variables iniciales
+   let textoActual = parseFloat(localStorage.getItem('tamanoTexto')) || 16;
+    let esquemaInvertido = localStorage.getItem('esquemaInvertido') === 'true';
+
+    // Aplicar cambios iniciales
+    document.documentElement.style.fontSize = `${textoActual}px`;
+    if (esquemaInvertido) {
+        document.body.classList.add('invertir-colores');
+    }
+
+    // Aumentar tamaño de texto
+    document.getElementById('aumentar-texto').addEventListener('click', () => {
+        textoActual += 2;
+        document.documentElement.style.fontSize = `${textoActual}px`;
+        localStorage.setItem('tamanoTexto', textoActual);
+    });
+
+    // Disminuir tamaño de texto
+    document.getElementById('disminuir-texto').addEventListener('click', () => {
+        if (textoActual > 12) { // Evitar tamaño muy pequeño
+            textoActual -= 2;
+            document.documentElement.style.fontSize = `${textoActual}px`;
+            localStorage.setItem('tamanoTexto', textoActual);
+        }
+    });
+
+    // Invertir colores
+    document.getElementById('invertir-colores-btn').addEventListener('click', () => {
+        document.body.classList.toggle('invertir-colores');
+        esquemaInvertido = !esquemaInvertido;
+        localStorage.setItem('esquemaInvertido', esquemaInvertido);
+    });
     </script>
 </body>
 </html>

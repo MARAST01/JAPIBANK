@@ -40,8 +40,6 @@ body {
 
 .logo {
     margin: 0;
-    color: #fca311;
-    font-size: 50px;
 }
 
 .menu-button {
@@ -231,4 +229,71 @@ h1 {
     margin-right: 10px; /* Espacio entre el label y el input */
     font-size: 1rem;
     width: 100px;
+}
+/* Estilos para el contenedor de accesibilidad */
+.accesibilidad {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los botones */
+    z-index: 1000;
+}
+
+/* Estilo para los botones flotantes */
+.btn-accesibilidad {
+    padding: 10px;
+    background-color: #fca311;
+    border: none;
+    border-radius: 50%; /* Botón redondo */
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 20px; /* Tamaño del icono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Ajustar el tamaño del botón */
+    height: 50px; /* Ajustar el tamaño del botón */
+}
+
+.btn-accesibilidad:hover {
+    background-color: #e58e26;
+}
+
+/* Iconos dentro de los botones */
+.btn-accesibilidad i {
+    font-size: 24px; /* Tamaño del icono */
+}
+/* Botón flotante para invertir colores */
+#invertir-colores-btn {
+    position: fixed;
+    top: 60%;
+    right: 20px;
+    background-color: #fca311;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+#invertir-colores-btn:hover {
+    background-color: #e58e26;
+}
+
+/* Clase para invertir colores */
+.invertir-colores {
+    filter: invert(1);
+    transition: filter 0.3s ease;
 }

@@ -20,6 +20,18 @@
         <button class="menu-btn" id="menu-btn">
             <i class="fa-solid fa-bars"></i>
         </button>
+        <!-- Botones flotantes de accesibilidad -->
+        <div class="accesibilidad">
+            <button id="aumentar-texto" class="btn-accesibilidad" title="Aumentar tamaño de texto">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+            <button id="disminuir-texto" class="btn-accesibilidad" title="Disminuir tamaño de texto">
+                <i class="fa-solid fa-minus"></i>
+            </button>
+        </div>
+        <button id="invertir-colores-btn" class="btn-accesibilidad" title="Invertir colores">
+            <i class="fa-solid fa-adjust"></i>
+        </button>
     </header>
 
     <main class="contenedor-colchon">  <button class="back-button" onclick="window.open('./ventana_inicio.html', '_self')">←</button><h1>Envía plata</h1></div>
@@ -103,7 +115,38 @@
         } else {
             document.getElementById("detalle-colchon").innerHTML = "No hay transacciones recientes.";
         }
+// Variables iniciales
+let textoActual = parseFloat(localStorage.getItem('tamanoTexto')) || 16;
+    let esquemaInvertido = localStorage.getItem('esquemaInvertido') === 'true';
 
+    // Aplicar cambios iniciales
+    document.documentElement.style.fontSize = `${textoActual}px`;
+    if (esquemaInvertido) {
+        document.body.classList.add('invertir-colores');
+    }
+
+    // Aumentar tamaño de texto
+    document.getElementById('aumentar-texto').addEventListener('click', () => {
+        textoActual += 2;
+        document.documentElement.style.fontSize = `${textoActual}px`;
+        localStorage.setItem('tamanoTexto', textoActual);
+    });
+
+    // Disminuir tamaño de texto
+    document.getElementById('disminuir-texto').addEventListener('click', () => {
+        if (textoActual > 12) { // Evitar tamaño muy pequeño
+            textoActual -= 2;
+            document.documentElement.style.fontSize = `${textoActual}px`;
+            localStorage.setItem('tamanoTexto', textoActual);
+        }
+    });
+
+    // Invertir colores
+    document.getElementById('invertir-colores-btn').addEventListener('click', () => {
+        document.body.classList.toggle('invertir-colores');
+        esquemaInvertido = !esquemaInvertido;
+        localStorage.setItem('esquemaInvertido', esquemaInvertido);
+    });
 
     </script>
 </body>

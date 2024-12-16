@@ -8,7 +8,7 @@
 }
 
 body {
-    background: url("/images/fondo.png");
+    background: url("fondo.png");
     background-size: 250px 250px;
     font-family: Arial, sans-serif;
     background-color: #000000;
@@ -40,8 +40,6 @@ body {
 
 .logo {
     margin: 0;
-    color: #fca311;
-    font-size: 50px;
 }
 
 .menu-button {
@@ -108,43 +106,37 @@ body {
 
 /*fin del header principal*/
 
-.contenedor-grande {
+.container {
+    width: 100% !important; /* Aumenta el ancho para que ocupe casi todo el espacio disponible */
+    max-width: 900px !important; /* Amplía el ancho máximo para pantallas más grandes */
+    padding: 20px;
     margin: 120px auto; /* Mantén el margen superior para el header */
-    max-width: 1000px; /* Limita el ancho máximo del contenedor */
-    padding: 5px; /* Añade un espacio interior */
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente para el efecto de vidrio */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-    margin: 20px auto; /* Centra el contenedor horizontalmente */
-    margin-top: 150px;
-    text-align: center; /* Centra el texto y los elementos hijos */
-    backdrop-filter: blur(px); /* Aplica un desenfoque al fondo del contenedor */
+    background-color: rgba(19, 45, 70, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espaciado entre elementos */
 }
 
-.contenedor-pequeño {
-    padding: 20px;
-    background-color: #132d46; /* Color de fondo de las secciones */
-    color: rgb(252, 252, 252); /* Color del texto principal e iconos */
-}
+.content {
+    display: flex; /* Flexbox para alinear elementos internos */
+    flex-direction: column; /* Organiza los elementos en una columna */
+    justify-content: center; /* Centra los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    gap: 20px; /* Espaciado entre los elementos */
+    margin-top: 40px; /* Espacio desde el título */
+  }
 
-
-footer {
-    background-color: rgba(19, 45, 70, 0.5); /* Fondo blanco semitransparente */
-    backdrop-filter: blur(5px); /* Efecto blur */
-    padding: 10px;
-    text-align: center;
-    border-radius: 0 0 20px 20px; /* Bordes redondeados solo arriba */
-}
-
-.head {
-    text-align: left;
+.header-content {
     display: flex;
+    align-items: center;
     gap: 10px;
-    padding: 20px;
-    background-color: rgba(19, 45, 70, 0.5); /* Fondo morado con transparencia */
-    backdrop-filter: blur(5px); /* Efecto blur */
-    border-radius: 20px 20px 0 0; /* Bordes redondeados solo arriba */
+    margin-bottom: 20px;
 }
+
 .back-button {
     background: none;
     border: none;
@@ -157,29 +149,6 @@ h1 {
     font-size: 24px;
     font-weight: 600;
 }
-
-.label {
-    font-size: 1rem;
-    width: 100px;
-    margin-top: 10px;
-}
-
-.form-group {
-    margin-bottom: 20px; /* Espacio entre grupos */
-  }
-  
-  .form-group label {
-    display: block; /* Asegura que el label ocupe toda la línea */
-    margin-bottom: 5px; /* Espacio entre el label y el input */
-    font-weight: bold; /* Opcional, para resaltar el texto */
-  }
-  
-  .meta-input {
-    width: 100%; /* Asegura que el input ocupe todo el ancho disponible */
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
 
 .total-balance {
     font-size: 15px;
@@ -308,4 +277,71 @@ h1 {
 .save-meta {
     background-color: #e89ec6;
     color: white;
+}
+/* Estilos para el contenedor de accesibilidad */
+.accesibilidad {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los botones */
+    z-index: 1000;
+}
+
+/* Estilo para los botones flotantes */
+.btn-accesibilidad {
+    padding: 10px;
+    background-color: #fca311;
+    border: none;
+    border-radius: 50%; /* Botón redondo */
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 20px; /* Tamaño del icono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Ajustar el tamaño del botón */
+    height: 50px; /* Ajustar el tamaño del botón */
+}
+
+.btn-accesibilidad:hover {
+    background-color: #e58e26;
+}
+
+/* Iconos dentro de los botones */
+.btn-accesibilidad i {
+    font-size: 24px; /* Tamaño del icono */
+}
+/* Botón flotante para invertir colores */
+#invertir-colores-btn {
+    position: fixed;
+    top: 60%;
+    right: 20px;
+    background-color: #fca311;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+#invertir-colores-btn:hover {
+    background-color: #e58e26;
+}
+
+/* Clase para invertir colores */
+.invertir-colores {
+    filter: invert(1);
+    transition: filter 0.3s ease;
 }

@@ -20,22 +20,18 @@
             <i class="fa-solid fa-bars"></i>
         </button>
 
-        <!-- Botones flotantes de accesibilidad -->
-<div class="accesibilidad">
-    <!-- Botón para aumentar el tamaño de texto -->
-    <button id="aumentar-texto" class="btn-accesibilidad" title="Aumentar tamaño de texto">
-        <i class="fa-solid fa-plus"></i>
+       <!-- Botones flotantes de accesibilidad -->
+       <div class="accesibilidad">
+        <button id="aumentar-texto" class="btn-accesibilidad" title="Aumentar tamaño de texto">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+        <button id="disminuir-texto" class="btn-accesibilidad" title="Disminuir tamaño de texto">
+            <i class="fa-solid fa-minus"></i>
+        </button>
+    </div>
+    <button id="invertir-colores-btn" class="btn-accesibilidad" title="Invertir colores">
+        <i class="fa-solid fa-adjust"></i>
     </button>
-    <!-- Botón para disminuir el tamaño de texto -->
-    <button id="disminuir-texto" class="btn-accesibilidad" title="Disminuir tamaño de texto">
-        <i class="fa-solid fa-minus"></i>
-    </button>
-</div>
-
-<!-- Botón flotante para invertir colores -->
-<button id="invertir-colores-btn" class="btn-accesibilidad" title="Invertir colores">
-    <i class="fa-solid fa-adjust"></i>
-</button>
 
     </header>
 
@@ -77,8 +73,8 @@
             window.location.href = 'perfil.html';
         });
 
-   // Variables iniciales
-   let textoActual = parseFloat(localStorage.getItem('tamanoTexto')) || 16;
+           // Variables iniciales
+           let textoActual = parseFloat(localStorage.getItem('tamanoTexto')) || 16;
     let esquemaInvertido = localStorage.getItem('esquemaInvertido') === 'true';
 
     // Aplicar cambios iniciales
